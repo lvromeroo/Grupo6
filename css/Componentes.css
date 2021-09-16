@@ -21,6 +21,19 @@
 }
 
 .menu li a:hover, .Activo{
-    background: rgb(87, 124, 179);
-    border:0px;
+    background: #0d6efd;
+}
+
+.categorias{
+    padding: 20px 50px;
+}
+
+.list-group-item{
+    background: #a8a6ac;
+    color:white;
+    font-size: 19px;
+}
+
+.list-group-item.active{
+    background: #0d6efd;
 }
