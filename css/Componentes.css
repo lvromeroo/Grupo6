@@ -8,6 +8,7 @@
 
 .menu li{
     display: inline-block;
+    border:0px;
 }
 
 .menu li a{
@@ -16,12 +17,10 @@
     text-decoration: none;
     font-size: 35px;
     color: white;
+    
 }
 
-.menu li a:hover{
+.menu li a:hover, .Activo{
     background: rgb(87, 124, 179);
-}
-
-.Activo {
-    background: rgb(87, 124, 179);
+    border:0px;
 }
