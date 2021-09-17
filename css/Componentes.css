@@ -32,7 +32,7 @@
 .category-title{
     width: 160px;
     margin: 0px;
-    padding: 0px 35px;
+    padding: 20px 0px 0px 35px;
 }
 
 .list-group-item{
@@ -56,4 +56,14 @@
 
 #busqueda{
     padding: 0px 60px;
+}
+
+.imagen-componente{
+    width: 250px;
+    height: 187.5px;
+}
+
+.img-articulo{
+    padding: 0px 50px;
+    float: left;
 }
