@@ -67,3 +67,12 @@
     padding: 0px 50px;
     float: left;
 }
+
+.info-articulo{
+    float: left;
+}
+.opc-articulo{
+    float: left;
+    width: 350px;
+    padding: 20px 0px;
+}
