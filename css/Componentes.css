@@ -26,14 +26,34 @@
 
 .categorias{
     padding: 20px 50px;
+    float: left;
+}
+
+.category-title{
+    width: 160px;
+    margin: 0px;
+    padding: 0px 35px;
 }
 
 .list-group-item{
     background: #a8a6ac;
     color:white;
     font-size: 19px;
+    width: 225px;
 }
 
 .list-group-item.active{
     background: #0d6efd;
+}
+
+.vista-articulos{
+    float: left;
+}
+
+#navSearch{
+    padding: 15px 0px 15px 470px;
+}
+
+#busqueda{
+    padding: 0px 60px;
 }
