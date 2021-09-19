@@ -1,0 +1,153 @@
+* {
+  font-family: "Tajawal", sans-serif;
+  box-sizing: border-box;
+}
+
+/* Cuerpo de la pagina web*/
+body {
+  max-width: 1700px;
+  min-width: 375px;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #222222;
+}
+
+/* Encabezado*/
+div.encabezado-section {
+  margin-bottom: 100px;
+}
+div.header-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #a3b3ea;
+  padding-bottom: 100px;
+}
+
+/* Titulo*/
+div.site-title {
+  width: 30%;
+  margin: 100px;
+  color: rgb(34, 1, 95);
+  font-size: large;
+}
+
+/* Apartado del navegador*/
+ul.nav-sit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #a8a6ac;
+  list-style: none;
+  margin: auto;
+  padding: 0;
+  width: 968.5px;
+}
+.nav-sit a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 35px;
+  color: white;
+}
+
+.nav-sit a:hover {
+  background: #0d6efd;
+}
+
+/* subpartes del cuerpo*/
+
+/* Presentacion*/
+.section-descript {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+  margin-right: 250px;
+  margin-left: 100px;
+}
+
+/*titulo*/
+.fs-1 {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+/* Las tres preguntas*/
+.descript-info_know,
+.descript-info_adva,
+.descript-info_work {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: justify;
+  padding: 10px;
+  margin: 5px;
+}
+
+.mold-img-descript {
+  align-items: center;
+  margin: 20px;
+  border-radius: 50%;
+}
+
+.descript_img {
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*Integrantes*/
+.section-parther {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 100px;
+  margin-right: 100px;
+  margin-left: 250px;
+}
+.parther-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  margin-bottom: 100px;
+  width: 30%;
+  padding: 15px;
+  align-items: center;
+}
+
+.parther_imang {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100px;
+  height: 100px;
+}
+
+/*Pie de pagina*/
+
+.section-foot {
+  background-color: #a3b3ea;
+  height: 200px;
+  display: flex;
+  color: white;
+  justify-content: space-evenly;
+}
+
+/*parther posicion*/
+
+#camb-posc {
+  position: relative;
+  top: 60px;
+  text-align: center;
+}
+.parther_text {
+  position: relative;
+  top: 90px;
+}
+
+/*PARTE DE ARMADO PARTE DE ARMADO PARTE DE ARMADO*/
