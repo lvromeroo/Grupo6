@@ -1,0 +1,57 @@
+.header {
+	background-color: #BFBFF3;
+	font-family: Arial;
+	margin: 0%;
+}
+
+.footer {
+	background-color: #BFBFF3;
+	font-family: Arial;
+}
+
+.cuadro_registro {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.contenido {
+	background-color: #39545e;
+}
+
+.formulario {
+	background-color:gainsboro;
+}
+
+.container {
+  width: 400px;
+  clear: both;
+}
+
+.container input {
+  width: 50%;
+  clear: both;
+}
+
+div {
+  width: 160px;
+  height: 80px;
+  padding: 20px;
+  border: 8px solid red;
+  background: yellow;
+}
+
+.content-box {
+  box-sizing: content-box;
+  /* Ancho  total: 160px + (2 * 20px) + (2 * 8px) = 216px
+     Altura total: 80px + (2 * 20px) + (2 * 8px) = 136px
+     Ancho de la caja de contenido: 160px
+     Altura de la caja de contenido: 80px */
+}
+
+.border-box {
+  box-sizing: border-box;
+  /* Ancho total: 160px
+     Altura total: 80px
+     Ancho de la caja de contenido: 160px - (2 * 20px) - (2 * 8px) = 104px
+     Altura de la caja de contenido: 80px - (2 * 20px) - (2 * 8px) = 24px */
+}

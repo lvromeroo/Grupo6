@@ -1,0 +1,33 @@
+.header {
+	background-color: #BFBFF3;
+	font-family: Arial;
+	margin: 0%;
+}
+
+.footer {
+	background-color: #BFBFF3;
+	font-family: Arial;
+}
+
+.cuadro_registro {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.contenido {
+	background-color: #39545e;
+}
+
+.formulario {
+	background-color:gainsboro;
+}
+
+.container {
+  width: 500px;
+  clear: both;
+}
+
+.container input {
+  width: 100%;
+  clear: both;
+}
