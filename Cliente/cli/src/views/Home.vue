@@ -1,15 +1,15 @@
 <template>
-  <Notas />
+  <Componentes />
 </template>
 
 <script>
-  import Notas from './Notas.vue'
+  import Componentes from './Componentes.vue'
 
   export default {
     name: 'Home',
 
     components: {
-      Notas,
+      Componentes,
     },
   }
 </script>
