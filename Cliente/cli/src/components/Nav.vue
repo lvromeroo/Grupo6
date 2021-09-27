@@ -53,7 +53,7 @@
                     <a class="Activo" href="">COMPONENTES</a>
                 </li>
                 <li>
-                    <a href="">CUENTA</a>
+                    <a href="../views/Componentes.vue">CUENTA</a>
                 </li>
               </ul>
           </nav>

@@ -51,7 +51,7 @@
         float: left;
         width: 350px;
         padding: 20px 0px;
-        color: wh
+        color: white;
     }
 
     .articulo-component{
@@ -177,12 +177,11 @@
                     <br>
         
                     <h3>Precio: COP$ 0000</h3>
-                    <!-- <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp$ 00.00</h3> -->
+                    <h3>$ 00.00</h3>
                 </div>
                 <div class="opc-articulo">
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="Articulo_detallado.html" class="btn btn-primary" role="button">Ver detalles</a>
+                        <a href="Articulo_detallado.html" class="btn btn-primary" role="button" style="color:white">Ver detalles</a>
                         <button class="btn btn-primary" type="button">Agregar al diseño</button>
                         <button class="btn btn-primary" type="button">Agregar al carrito</button>
                     </div>
@@ -198,12 +197,11 @@
                     <br>
         
                     <h3>Precio: COP$ 0000</h3>
-                    <!-- <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp$ 00.00</h3> -->
+                    <h3>$ 00.00</h3>
                 </div>
                 <div class="opc-articulo">
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="Articulo_detallado.html" class="btn btn-primary" role="button">Ver detalles</a>
+                        <a href="Articulo_detallado.html" class="btn btn-primary" role="button" style="color:white">Ver detalles</a>
                         <button class="btn btn-primary" type="button">Agregar al diseño</button>
                         <button class="btn btn-primary" type="button">Agregar al carrito</button>
                     </div>
@@ -219,12 +217,11 @@
                     <br>
         
                     <h3>Precio: COP$ 0000</h3>
-                    <!-- <h3>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp$ 00.00</h3> -->
+                    <h3>$ 00.00</h3>
                 </div>
                 <div class="opc-articulo">
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="Articulo_detallado.html" class="btn btn-primary" role="button">Ver detalles</a>
+                        <a href="Articulo_detallado.html" class="btn btn-primary" role="button" style="color:white">Ver detalles</a>
                         <button class="btn btn-primary" type="button">Agregar al diseño</button>
                         <button class="btn btn-primary" type="button">Agregar al carrito</button>
                     </div>
