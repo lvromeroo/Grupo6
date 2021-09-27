@@ -22,7 +22,7 @@
         text-decoration: none;
         font-size: 35px;
         color: white;
-        
+
     }
 
     .menu li a:hover, .Activo{

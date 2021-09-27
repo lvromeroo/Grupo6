@@ -51,6 +51,7 @@
         float: left;
         width: 350px;
         padding: 20px 0px;
+        color: wh
     }
 
     .articulo-component{
@@ -169,7 +170,7 @@
             <!-- Inicio listado de articulos -->
             <div class="articulo-component">
                 <div class="img-articulo">
-                    <img src="img/Mother1.jpg" alt="Tarjeta madre 1" class="imagen-componente"/>
+                    <img src="../assets/Mother1.jpg" alt="Tarjeta madre 1" class="imagen-componente"/>
                 </div>
                 <div class="info-articulo">
                     <h2>Nombre articulo 1</h2>
@@ -190,7 +191,7 @@
 
             <div class="articulo-component">
                 <div class="img-articulo">
-                    <img src="img/Mother2.jpg" alt="Tarjeta madre 2" class="imagen-componente"/>
+                    <img src="../assets/Mother2.jpg" alt="Tarjeta madre 2" class="imagen-componente"/>
                 </div>
                 <div class="info-articulo">
                     <h2>Nombre articulo 2</h2>
@@ -211,7 +212,7 @@
 
             <div class="articulo-component">
                 <div class="img-articulo" style="padding-bottom: 10px;">
-                    <img src="img/Mother3.jpg" alt="Tarjeta madre 2" class="imagen-componente"/>
+                    <img src="../assets/Mother3.jpg" alt="Tarjeta madre 2" class="imagen-componente"/>
                 </div>
                 <div class="info-articulo">
                     <h2>Nombre articulo 3</h2>
