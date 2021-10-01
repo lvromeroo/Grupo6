@@ -11,7 +11,8 @@ router.post('/nuevo-user', async(req, res) => {
     const body = req.body;
     try{
         const userDB = await User.create(body);
-        res.status(200).json(userDB);
+        res.status(200).json({mensaje:'todo listo'});
+        console.log(userDB);
     } catch ( error ){
         return res.status(500).json({
             mensaje: 'ocurrio un error',
@@ -35,7 +36,7 @@ router.post('/autenticar', (req, res) =>{
                     res.status(500).send('error al autenticar');
 
                 }else if(result){
-                    res.status(200).send('usuario autenticado correctamente');                  
+                    res.status(200).json({mensaje:'usuario autenticado correctamente'});                  
                 }else{
                     res.status(500).send('usuario o contraseña incorrecta');
                 }
@@ -45,6 +46,18 @@ router.post('/autenticar', (req, res) =>{
 
 });
 
+router.post('/register', (req, res) =>{
+    const {username, password} = req.body;
+
+    const user = new User({username, password});
+    user.save(err =>{
+        if(err){
+            res.status(500).send('error al registrar usuario');
+        }else{
+            res.status(200).send('usuario registrado');
+        }
+    });
+});
 
 
 //ensayo y error

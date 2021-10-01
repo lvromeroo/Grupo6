@@ -38,7 +38,7 @@ app.use(express.urlencoded({extended: true}));// en la documentacion estaba true
 
 //rutas
 app.use('/api', require('./routes/user'));
-
+app.use('/api', require('./routes/articulo'));
 
 // middleware para vue.js router modo history
 const history = require('connect-history-api-fallback');

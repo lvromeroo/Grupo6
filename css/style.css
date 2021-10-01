@@ -34,7 +34,10 @@ div.site-title {
   width: 30%;
   margin: 100px;
   color: rgb(34, 1, 95);
-  font-size: large;
+  font-size: 100px;
+}
+h1 {
+  font-size: 70px;
 }
 
 /* Apartado del navegador*/
@@ -74,6 +77,7 @@ ul.nav-sit {
 .fs-1 {
   text-align: center;
   margin-bottom: 100px;
+  font-size: 80px;
 }
 
 /* Las tres preguntas*/
@@ -136,6 +140,7 @@ ul.nav-sit {
   display: flex;
   color: white;
   justify-content: space-evenly;
+  margin-top: 15px;
 }
 
 /*parther posicion*/
@@ -158,13 +163,21 @@ ul.nav-sit {
 }
 
 .container-left {
+  display: flex;
+  flex-direction: column;
   width: 45%;
+  text-align: center;
+}
+
+.container-right {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
 /*Title del submen*/
 .thtitle {
-  font-size: 30px;
+  font-size: 50px;
   color: rgb(34, 1, 95);
 }
 
@@ -182,7 +195,7 @@ ul.nav-sit {
   font-size: 20px;
   color: white;
   background-color: #79777c;
-  padding: 30px 100px 30px 100px;
+  padding: 10px 30px 10px 30px;
   list-style-type: none;
 }
 
@@ -220,9 +233,41 @@ ul.nav-sit {
 /*Imagen Editar*/
 .Arm_img {
   border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  left: 60px;
+}
+
+/*titulo*/
+
+.Cont-title {
+  text-align: center;
 }
 
 /*Subtitulo*/
 .Arm_title {
   text-align: center;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.Arm-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: justify;
+  padding: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.Arm_text {
+  margin-left: 60px;
+  margin-right: 90px;
+  text-align: justify;
+  font-size: 15px;
+}
+
+.section-subme {
+  display: flex;
 }
