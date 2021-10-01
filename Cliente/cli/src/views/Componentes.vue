@@ -13,14 +13,14 @@
                     <!-- Inicio menu de categorias -->
                     <div class="col-8">
                         <b-button-group vertical style="color:white;">
-                            <b-button variant="primary">Tarjetas madre</b-button>
-                            <b-button variant="primary">Procesadores (CPU)</b-button>
-                            <b-button variant="primary">Tarjetas de video(GPU)</b-button>
-                            <b-button variant="primary">Memorias RAM</b-button>
-                            <b-button variant="primary">Fuentes de energia</b-button>
-                            <b-button variant="primary">Almacenamiento</b-button>
-                            <b-button variant="primary">Refrigeracion</b-button>
-                            <b-button variant="primary">Case</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='TARJETAS MADRE'">Tarjetas madre</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='PROCESADORES (CPU)'">Procesadores (CPU)</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='TARJETAS DE VIDEO (GPU)'">Tarjetas de video(GPU)</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='MEMORIAS RAM'">Memorias RAM</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='FUENTES DE ENERGIA'">Fuentes de energia</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='ALMACENAMIENTO'">Almacenamiento</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='REFRIGERACION'">Refrigeracion</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='CASE'">Case</b-button>
                         </b-button-group>
                     </div>
                     <br>
@@ -55,7 +55,7 @@
                     <!-- Fin menu de busqueda de articulos -->
 
                     <br>
-                    <h2 align="center" style="color:rgb(34, 1, 95)">TARJETAS MADRE</h2>
+                    <h2 align="center" style="color:rgb(34, 1, 95)">{{tituloCategoria}}</h2>
                     <br>
 
                     <!-- Inicio listado de articulos -->
@@ -97,6 +97,7 @@ export default {
         return {
 
             articulos:[],
+            tituloCategoria:'TARJETAS MADRE',
         }
 
     },
