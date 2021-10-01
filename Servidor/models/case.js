@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 
-const articuloSchema = new Schema({
+const caseSchema = new Schema({
     imagen: {type: String, default: 'Imagen no disponible'},
     nombreTecnico: {type: String, required: [true, 'Nombre tecnico obligatorio']},
     nombreComercial: {type: String, required: [true, 'Nombre comercial obligatorio']},
@@ -14,6 +14,7 @@ const articuloSchema = new Schema({
 });
 
 // Convertir a modelo
-const Articulo = mongoose.model('Articulo', articuloSchema);
+const Case = mongoose.model('Case', caseSchema);
 
-export default Articulo;
+
+export default Case;

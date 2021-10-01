@@ -13,14 +13,14 @@
                     <!-- Inicio menu de categorias -->
                     <div class="col-8">
                         <b-button-group vertical style="color:white;">
-                            <b-button variant="primary" @click="tituloCategoria='TARJETAS MADRE'">Tarjetas madre</b-button>
-                            <b-button variant="primary" @click="tituloCategoria='PROCESADORES (CPU)'">Procesadores (CPU)</b-button>
-                            <b-button variant="primary" @click="tituloCategoria='TARJETAS DE VIDEO (GPU)'">Tarjetas de video(GPU)</b-button>
-                            <b-button variant="primary" @click="tituloCategoria='MEMORIAS RAM'">Memorias RAM</b-button>
-                            <b-button variant="primary" @click="tituloCategoria='FUENTES DE ENERGIA'">Fuentes de energia</b-button>
-                            <b-button variant="primary" @click="tituloCategoria='ALMACENAMIENTO'">Almacenamiento</b-button>
-                            <b-button variant="primary" @click="tituloCategoria='REFRIGERACION'">Refrigeracion</b-button>
-                            <b-button variant="primary" @click="tituloCategoria='CASE'">Case</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='TARJETAS MADRE'; categoria='mother';">Tarjetas madre</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='PROCESADORES (CPU)'; categoria='procesador';">Procesadores (CPU)</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='TARJETAS DE VIDEO (GPU)'; categoria='video';">Tarjetas de video(GPU)</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='MEMORIAS RAM'; categoria='ram';">Memorias RAM</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='FUENTES DE ENERGIA'; categoria='f_energia';">Fuentes de energia</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='ALMACENAMIENTO'; categoria='almacenamiento';">Almacenamiento</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='REFRIGERACION'; categoria='refrigeracion';">Refrigeracion</b-button>
+                            <b-button variant="primary" @click="tituloCategoria='CASE'; categoria='case';">Case</b-button>
                         </b-button-group>
                     </div>
                     <br>
@@ -81,6 +81,7 @@
                         </div>
                     </div>
                     <br>
+                    <footer-banco></footer-banco>
                     
                 </section>
                 <!-- Fin seccion de vista de articulos --> 
@@ -98,6 +99,7 @@ export default {
 
             articulos:[],
             tituloCategoria:'TARJETAS MADRE',
+            categoria: 'procesador',
         }
 
     },
@@ -112,7 +114,7 @@ export default {
 
         mostrarArticulos() {
 
-            this.axios.get('/articulo')
+            this.axios.get('/' + this.categoria)
             .then(res=>{
 
                 console.log(res.data)
@@ -130,4 +132,19 @@ export default {
 
     },
 }
+
+</script>
+
+<script>
+app.component('footer-banco', {
+
+    template: /*html*/`
+    
+    <div>
+        <h1>Footer de mi pagina</h1>
+    </div>
+
+    `
+
+})
 </script>
