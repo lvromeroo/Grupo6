@@ -8,7 +8,7 @@
         list-style: none;
         margin: auto;
         padding: 0px;
-        width: 954.2px;
+        width: 954.4px;
     }
 
     .menu li{
@@ -50,10 +50,10 @@
                     <a href="">ARMADO</a>
                 </li>
                 <li>
-                    <a class="Activo" href="">COMPONENTES</a>
+                    <a href="../views/Componentes.vue" >COMPONENTES</a>
                 </li>
                 <li>
-                    <a href="../views/Componentes.vue">CUENTA</a>
+                    <a href="">CUENTA</a>
                 </li>
               </ul>
           </nav>
