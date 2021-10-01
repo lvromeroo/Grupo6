@@ -44,13 +44,13 @@
                     <a href="">INICIO</a>
                 </li>
                 <li>
-                    <a href="">DISEÑO</a>
+                    <a href="/Diseno">DISEÑO</a>
                 </li>
                 <li>
                     <a href="">ARMADO</a>
                 </li>
                 <li>
-                    <a href="../views/Componentes.vue" >COMPONENTES</a>
+                    <a href="/componentes">COMPONENTES</a>
                 </li>
                 <li>
                     <a href="">CUENTA</a>
