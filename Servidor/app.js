@@ -30,6 +30,7 @@ app.use(express.urlencoded({ extended:true }))
 // //ruta
 
 app.use('/api', require('./routes/Articulo'));
+app.use('/api', require('./routes/user'));
 
 
 // Middleware para  Vue.js router modo history

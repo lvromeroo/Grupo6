@@ -1,24 +1,20 @@
 <template>
-    <v-app>
-        <Nav/>
-        <v-main>
-          <router-view/>
-        </v-main>
-        <Footer/>
-    </v-app>
+  <div>
+    <router-view/> 
+  </div>
 </template>
 
 <script>
 
-import Nav from './components/Nav.vue'
-import Footer from './components/Footer.vue'
+import cielo from './components/cielo.vue'
+import pies from './components/pies.vue'
 
 export default {
 
   components: {
 
-    Nav,
-    Footer
+    cielo,
+    pies
 
   },
   name: 'App',
