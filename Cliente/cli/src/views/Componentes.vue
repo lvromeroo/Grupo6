@@ -15,14 +15,14 @@
                         <!-- Inicio menu de categorias -->
                         <div class="col-8">
                             <b-button-group vertical style="color:white;">
-                                <b-button variant="primary" @click="tituloCategoria='TARJETAS MADRE'; categoria='mother';">Tarjetas madre</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='PROCESADORES (CPU)'; categoria='procesador';">Procesadores (CPU)</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='TARJETAS DE VIDEO (GPU)'; categoria='video';">Tarjetas de video(GPU)</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='MEMORIAS RAM'; categoria='ram';">Memorias RAM</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='FUENTES DE ENERGIA'; categoria='f_energia';">Fuentes de energia</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='ALMACENAMIENTO'; categoria='almacenamiento';">Almacenamiento</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='REFRIGERACION'; categoria='refrigeracion';">Refrigeracion</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='CASE'; categoria='case';">Case</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='TARJETAS MADRE'; categoria='mother';  mostrarArticulos();">Tarjetas madre</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='PROCESADORES (CPU)'; categoria='procesador';  mostrarArticulos();">Procesadores (CPU)</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='TARJETAS DE VIDEO (GPU)'; categoria='video';  mostrarArticulos();">Tarjetas de video(GPU)</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='MEMORIAS RAM'; categoria='ram';  mostrarArticulos();">Memorias RAM</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='FUENTES DE ENERGIA'; categoria='f_energia';  mostrarArticulos();">Fuentes de energia</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='ALMACENAMIENTO'; categoria='almacenamiento'; mostrarArticulos();">Almacenamiento</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='REFRIGERACION'; categoria='refrigeracion';  mostrarArticulos();">Refrigeracion</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='CASE'; categoria='case';  mostrarArticulos();">Case</b-button>
                             </b-button-group>
                         </div>
                         <br>
@@ -65,7 +65,7 @@
                         <div style="padding:15px 0px;" class="row" v-for="(item, index) in articulos" :key="index">
 
                             <div class="col-md-4 well">
-                                <img :src="`${item.imagen}`" :alt="`${item.imagen}`" style="width: 250px; height: 187.5px;"/>
+                                <img :src="resolve_img_url(item.imagen)" :alt="`${item.imagen}`" style="width: 250px; height: 187.5px;"/>
                             </div>
                             <div class="col-md-5 well" style="padding: 15px;">
                                 <h2>{{item.nombreComercial}}</h2>
@@ -83,7 +83,6 @@
                             </div>
                         </div>
                         <br>
-                        <footer-banco></footer-banco>
                         
                     </section>
                     <!-- Fin seccion de vista de articulos --> 
@@ -113,7 +112,7 @@ export default {
 
             articulos:[],
             tituloCategoria:'TARJETAS MADRE',
-            categoria: 'procesador',
+            categoria: 'mother',
         }
 
     },
@@ -142,11 +141,27 @@ export default {
             })
 
         },
+        resolve_img_url: function (path) {
+
+            try {
+
+                let images = require.context('../assets/', false, /\.png$|\.jpg$/)
+                return images("./"+path)
+                
+            } catch (error) {
+
+                return '../assets/'+path
+                
+            }
+
+
+        },
 
 
     },
-}
 
+    
+}
 
 </script>
 
