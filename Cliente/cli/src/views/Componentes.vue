@@ -147,11 +147,11 @@ export default {
 
                 let images = require.context('../assets/', false, /\.png$|\.jpg$/)
                 return images("./"+path)
-                
+
             } catch (error) {
 
                 return '../assets/'+path
-                
+
             }
 
 
@@ -160,7 +160,6 @@ export default {
 
     },
 
-    
 }
 
 </script>

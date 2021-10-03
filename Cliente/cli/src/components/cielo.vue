@@ -41,7 +41,7 @@
         <nav>
             <ul class="menu">
                 <li>
-                    <a href="">INICIO</a>
+                    <a href="/inicio">INICIO</a>
                 </li>
                 <li>
                     <a href="/diseno">DISEÑO</a>
