@@ -59,6 +59,37 @@ router.post('/register', (req, res) =>{
     });
 });
 
+// Obtener usuarios
+router.get('/user', async(req, res) => {
+    try {
+        const user = await User.find();
+        res.json(user);
+    } catch (error) {
+    return res.status(400).json({
+        mensaje: 'Ocurrio un error',
+        error
+    })
+}
+});
+
+// Put actualizar informacion de usuario
+router.put('/user/:id', async(req, res) => {
+    const _id = req.params.id;
+    const body = req.body;
+    try {
+        const user = await User.findByIdAndUpdate(
+        _id,
+        body,
+        {new: true});
+        res.json(user);
+    } catch (error) {
+        return res.status(400).json({
+        mensaje: 'Ocurrio un error',
+        error
+    })
+}
+});
+
 
 //ensayo y error
 

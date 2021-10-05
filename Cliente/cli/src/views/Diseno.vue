@@ -41,51 +41,51 @@
             <tr>
               <td style="height: 100px;">Tarjeta madre</td>
               <td><a href="/componentes">Ver articulos</a></td>
-              <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt 
-                aspernatur alias, sapiente eos odit temporibus dolorum optio repellat 
-                quisquam facilis?</td>
+              <td style="text-align: justify;">Recomendacion de tarjeta madre para un computador de gama {{selected2}}
+                usado para {{selected}}
+              </td>
             </tr>
             <tr>
               <td style="height: 100px;">Procesador (CPU)</td>
               <td><a href="/componentes">Ver articulos</a></td>
-              <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt 
-                aspernatur alias, sapiente eos odit temporibus dolorum optio repellat 
-                quisquam facilis?</td>
+              <td style="text-align: justify;">Recomendacion de procesador para un computador de gama {{selected2}}
+                usado para {{selected}}</td>
             </tr>
             <tr>
               <td style="height: 100px;">Tarjetas de video(GPU)</td>
               <td><a href="/componentes">Ver articulos</a></td>
-              <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt 
-                aspernatur alias, sapiente eos odit temporibus dolorum optio repellat 
-                quisquam facilis?</td>
+              <td style="text-align: justify;">Recomendacion de tarjeta de video para un computador de gama {{selected2}}
+                usado para {{selected}}</td>
             </tr>
             <tr>
               <td style="height: 100px;">Memoria RAM</td>
               <td><a href="/componentes">Ver articulos</a></td>
-              <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt 
-                aspernatur alias, sapiente eos odit temporibus dolorum optio repellat 
-                quisquam facilis?</td>
+              <td style="text-align: justify;">Recomendacion de memoria RAM para un computador de gama {{selected2}}
+                usado para {{selected}}</td>
             </tr>
             <tr>
               <td style="height: 100px;">Fuente de energia</td>
               <td><a href="/componentes">Ver articulos</a></td>
-              <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt 
-                aspernatur alias, sapiente eos odit temporibus dolorum optio repellat 
-                quisquam facilis?</td>
+              <td style="text-align: justify;">Recomendacion de fuente de energia para un computador de gama {{selected2}}
+                usado para {{selected}}</td>
             </tr>
             <tr>
               <td style="height: 100px;">Almacenamiento</td>
               <td><a href="/componentes">Ver articulos</a></td>
-              <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt 
-                aspernatur alias, sapiente eos odit temporibus dolorum optio repellat 
-                quisquam facilis?</td>
+              <td style="text-align: justify;">Recomendacion de dispositivo de almacenamiento para un computador de gama {{selected2}}
+                usado para {{selected}}</td>
             </tr>
             <tr>
               <td style="height: 100px;">Refrigeracion</td>
               <td><a href="/componentes">Ver articulos</a></td>
-              <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt 
-                aspernatur alias, sapiente eos odit temporibus dolorum optio repellat 
-                quisquam facilis?</td>
+              <td style="text-align: justify;">Recomendacion de disipador para un computador de gama {{selected2}}
+                usado para {{selected}}</td>
+            </tr>
+            <tr>
+              <td style="height: 100px;">Case</td>
+              <td><a href="/componentes">Ver articulos</a></td>
+              <td style="text-align: justify;">Recomendacion de chasis para un computador de gama {{selected2}}
+                usado para {{selected}}</td>
             </tr>
           </tbody>
         </table>

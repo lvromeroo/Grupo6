@@ -80,7 +80,7 @@
                                     <div class="d-grid gap-2 col-10 mx-auto" style="padding: 20px 0px;">
                                         <button class="btn btn-primary" type="button" style="color:white" @click="activarDetalles(item._id)">Ver detalles</button>
                                         <button class="btn btn-primary" type="button" style="color:white">Agregar al diseño</button>
-                                        <button class="btn btn-primary" type="button" style="color:white;">Agregar al carrito</button>
+                                        <button class="btn btn-primary" type="button" style="color:white;" @click="usuario_carrito.push(item._id);">Agregar al carrito</button>
                                     </div>
                                 </div>
                             </div>
@@ -151,12 +151,14 @@
                         <br>
 
                         <!-- Fin vista de los detalles de un articulo -->
-                        
+
                     </section>
                     <!-- Fin seccion de vista de articulos --> 
                 </div>
             </div>
         </div>
+        <h1>(Porbando) Carrito de compras</h1>
+        <h1>{{usuario_carrito}}</h1>
         <piepagina/>
     </body>
 </template>
@@ -183,6 +185,7 @@ export default {
             categoria: 'mother',
             detalles: false,
             articulo_detalle: {},
+            usuario_carrito: [],
         }
 
     },
@@ -190,6 +193,7 @@ export default {
     created () {
 
         this.mostrarArticulos();
+        this.ObtenerUsuario();
 
     },
 
@@ -243,6 +247,22 @@ export default {
             })
 
         },
+        ObtenerUsuario() {
+
+            this.axios.get('/user')
+            .then(res=>{
+
+                console.log(res.data)
+                this.usuario_carrito = res.data[0].carrito;
+
+            })
+            .catch(e=>{
+
+                console.log(e.response);
+
+            })
+
+        }
 
     },
 
