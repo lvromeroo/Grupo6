@@ -42,7 +42,6 @@
                             <b-navbar-nav style="padding: 10px 0px 0px 430px;">
                                 <!-- Navbar dropdowns -->
                                 <b-nav-item-dropdown text="Ordenar por" right>
-                                    <b-dropdown-item href="#">Nombre</b-dropdown-item>
                                     <b-dropdown-item href="#">Precio (Mayor a menor)</b-dropdown-item>
                                     <b-dropdown-item href="#">Precio (Menor a mayor)</b-dropdown-item>
                                 </b-nav-item-dropdown>
@@ -57,32 +56,101 @@
                         <!-- Fin menu de busqueda de articulos -->
 
                         <br>
-                        <h2 align="center" style="color:rgb(34, 1, 95)">{{tituloCategoria}}</h2>
+                        <h2 align="center" style="color:rgb(34, 1, 95)" v-if="!detalles">{{tituloCategoria}}</h2>
+                        <h2 align="center" style="color:rgb(34, 1, 95); text-transform: uppercase;" v-if="detalles">{{articulo_detalle.nombreComercial}}</h2>
                         <br>
 
-                        <!-- Inicio listado de articulos -->
+                        <!-- Inicio vista de listado de articulos -->
 
-                        <div style="padding:15px 0px;" class="row" v-for="(item, index) in articulos" :key="index">
+                        <section v-if="!detalles">
 
-                            <div class="col-md-4 well">
-                                <img :src="resolve_img_url(item.imagen)" :alt="`${item.imagen}`" style="width: 250px; height: 187.5px;"/>
-                            </div>
-                            <div class="col-md-5 well" style="padding: 15px;">
-                                <h2>{{item.nombreComercial}}</h2>
-                                <br>
-                    
-                                <h3>Precio: COP$ {{item.precioCop}}</h3>
-                                <h3 style="padding: 0px 0px 0px 150px;">$ {{item.preciodolar}}</h3>
-                            </div>
-                            <div class="col-md-3 well">
-                                <div class="d-grid gap-2 col-10 mx-auto" style="padding: 20px 0px;">
-                                    <a href="Articulo_detallado.html" class="btn btn-primary" role="button" style="color:white">Ver detalles</a>
-                                    <button class="btn btn-primary" type="button" style="color:white">Agregar al diseño</button>
-                                    <button class="btn btn-primary" type="button" style="color:white;">Agregar al carrito</button>
+                            <div style="padding:15px 0px;" class="row" v-for="(item, index) in articulos" :key="index">
+
+                                <div class="col-md-4 well">
+                                    <img :src="resolve_img_url(item.imagen)" :alt="`${item.imagen}`" style="width: 250px; height: 187.5px;"/>
+                                </div>
+                                <div class="col-md-5 well" style="padding: 15px;">
+                                    <h2>{{item.nombreComercial}}</h2>
+                                    <br>
+                        
+                                    <h3>Precio: COP$ {{item.precioCop}}</h3>
+                                    <h3 style="padding: 0px 0px 0px 150px;">$ {{item.preciodolar}}</h3>
+                                </div>
+                                <div class="col-md-3 well">
+                                    <div class="d-grid gap-2 col-10 mx-auto" style="padding: 20px 0px;">
+                                        <button class="btn btn-primary" type="button" style="color:white" @click="activarDetalles(item._id)">Ver detalles</button>
+                                        <button class="btn btn-primary" type="button" style="color:white">Agregar al diseño</button>
+                                        <button class="btn btn-primary" type="button" style="color:white;">Agregar al carrito</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
+
+                        </section>
                         <br>
+                        <!-- Fin vista de listado de articulos -->
+
+                        <!-- Inicio vista de los detalles de un articulo -->
+
+                        <section v-if="detalles">
+
+                            <div style="padding:15px 0px;" class="row">
+
+                                <div class="col-md-4 well">
+                                        <img :src="resolve_img_url(articulo_detalle.imagen)" :alt="`${articulo_detalle.imagen}`" style="width: 350px; height: 262.5px;"/>
+                                </div>
+                                <div class="col-md-8 well" style="padding: 30px;">
+                                    <div class="d-grid gap-2 col-7 mx-auto" style="padding: 30px 0px;">
+                                        <button class="btn btn-primary" type="button" style="height: 60px; font-size: 20px; color: white;">Agregar al diseño</button>
+                                        <button class="btn btn-primary" type="button" style="height: 60px; font-size: 20px; color: white;">Agregar al carrito</button>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                            <br>
+                            <div>
+
+                                <table> 
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 270px;"><h3>Nombre tecnico:</h3></th>
+                                            <td style="font-size:20px; width: 440px; text-align: justify;">{{articulo_detalle.nombreTecnico}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style=""><h3>Nombre comercial:</h3></th>
+                                            <td style="font-size:20px; text-align: justify;">{{articulo_detalle.nombreComercial}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style=""><h3>Marca:</h3></th>
+                                            <td style="font-size:20px; text-align: justify;">{{articulo_detalle.marca}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align:text-top;"><h3>Especificaciones:</h3></th>
+                                            <td style="font-size:20px; text-align: justify;">{{articulo_detalle.especificaciones}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style=""><h3>Precio en COP:</h3></th>
+                                            <td style="font-size:20px; text-align: justify;">${{articulo_detalle.precioCop}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style=""><h3>Precio en dolares:</h3></th>
+                                            <td style="font-size:20px; text-align: justify;">${{articulo_detalle.preciodolar}}</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                                <br>
+
+                                <div style="padding: 20px 0px 0px 600px;">
+                                    <button class="btn btn-secondary" type="button" style="width: 180px; height: 45px; font-size: 22px; color:white;" @click="detalles=false">Regresar</button>
+                                </div>
+                            </div>
+                            <br>
+
+                        </section>
+                        <br>
+
+                        <!-- Fin vista de los detalles de un articulo -->
                         
                     </section>
                     <!-- Fin seccion de vista de articulos --> 
@@ -113,6 +181,8 @@ export default {
             articulos:[],
             tituloCategoria:'TARJETAS MADRE',
             categoria: 'mother',
+            detalles: false,
+            articulo_detalle: {},
         }
 
     },
@@ -154,9 +224,25 @@ export default {
 
             }
 
+        },
+        activarDetalles (id) {
+
+            this.detalles = true;
+            console.log(id);
+            this.axios.get(`/${this.categoria}/${id}`)
+
+            .then(res=>{
+
+                this.articulo_detalle = res.data;
+
+            })
+            .catch(e=>{
+
+                console.log(e.response)
+
+            })
 
         },
-
 
     },
 
