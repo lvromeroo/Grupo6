@@ -15,14 +15,14 @@
                         <!-- Inicio menu de categorias -->
                         <div class="col-8">
                             <b-button-group vertical style="color:white;">
-                                <b-button variant="primary" @click="tituloCategoria='TARJETAS MADRE'; categoria='mother';  mostrarArticulos();">Tarjetas madre</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='PROCESADORES (CPU)'; categoria='procesador';  mostrarArticulos();">Procesadores (CPU)</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='TARJETAS DE VIDEO (GPU)'; categoria='video';  mostrarArticulos();">Tarjetas de video(GPU)</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='MEMORIAS RAM'; categoria='ram';  mostrarArticulos();">Memorias RAM</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='FUENTES DE ENERGIA'; categoria='f_energia';  mostrarArticulos();">Fuentes de energia</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='ALMACENAMIENTO'; categoria='almacenamiento'; mostrarArticulos();">Almacenamiento</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='REFRIGERACION'; categoria='refrigeracion';  mostrarArticulos();">Refrigeracion</b-button>
-                                <b-button variant="primary" @click="tituloCategoria='CASE'; categoria='case';  mostrarArticulos();">Case</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='TARJETAS MADRE'; categoria='mother';  mostrarArticulos(); detalles=false;">Tarjetas madre</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='PROCESADORES (CPU)'; categoria='procesador';  mostrarArticulos(); detalles=false;">Procesadores (CPU)</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='TARJETAS DE VIDEO (GPU)'; categoria='video';  mostrarArticulos(); detalles=false;">Tarjetas de video(GPU)</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='MEMORIAS RAM'; categoria='ram';  mostrarArticulos(); detalles=false;">Memorias RAM</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='FUENTES DE ENERGIA'; categoria='f_energia';  mostrarArticulos(); detalles=false;">Fuentes de energia</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='ALMACENAMIENTO'; categoria='almacenamiento'; mostrarArticulos(); detalles=false;">Almacenamiento</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='REFRIGERACION'; categoria='refrigeracion';  mostrarArticulos(); detalles=false;">Refrigeracion</b-button>
+                                <b-button variant="primary" @click="tituloCategoria='CASE'; categoria='case';  mostrarArticulos(); detalles=false;">Case</b-button>
                             </b-button-group>
                         </div>
                         <br>
@@ -113,8 +113,8 @@
                                 <table> 
                                     <tbody>
                                         <tr>
-                                            <th style="width: 270px;"><h3>Nombre tecnico:</h3></th>
-                                            <td style="font-size:20px; width: 440px; text-align: justify;">{{articulo_detalle.nombreTecnico}}</td>
+                                            <th style="width: 270px; vertical-align:text-top;"><h3>Nombre tecnico:</h3></th>
+                                            <td style="font-size:20px; width: 440px; text-align: justify; ">{{articulo_detalle.nombreTecnico}}</td>
                                         </tr>
                                         <tr>
                                             <th style=""><h3>Nombre comercial:</h3></th>

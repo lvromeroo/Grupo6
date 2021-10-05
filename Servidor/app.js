@@ -8,7 +8,7 @@ const app = express();
 // Conexión base de datos
 const mongoose = require('mongoose');
 
-const uri = 'mongodb://localhost:27017/eniac';
+const uri = 'mongodb+srv://admin_eniac:eniac123@eniac.cokmc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const options = {useNewUrlParser: true, useUnifiedTopology: true};
 
 // Or using promises
