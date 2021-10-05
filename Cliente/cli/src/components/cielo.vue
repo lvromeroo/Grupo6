@@ -53,7 +53,7 @@
                     <a href="/componentes">COMPONENTES</a>
                 </li>
                 <li>
-                    <a href="">CUENTA</a>
+                    <a href="/carrito">CUENTA</a>
                 </li>
               </ul>
           </nav>

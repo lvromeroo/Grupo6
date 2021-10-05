@@ -79,8 +79,8 @@
                                 <div class="col-md-3 well">
                                     <div class="d-grid gap-2 col-10 mx-auto" style="padding: 20px 0px;">
                                         <button class="btn btn-primary" type="button" style="color:white" @click="activarDetalles(item._id)">Ver detalles</button>
-                                        <button class="btn btn-primary" type="button" style="color:white">Agregar al diseño</button>
-                                        <button class="btn btn-primary" type="button" style="color:white;" @click="usuario_carrito.push(item._id);">Agregar al carrito</button>
+                                        <button class="btn btn-primary" type="button" style="color:white" >Agregar al diseño</button>
+                                        <button class="btn btn-primary" type="button" style="color:white;" @click="Agregar_a_carrito([item._id, categoria])">Agregar al carrito</button>
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +185,7 @@ export default {
             categoria: 'mother',
             detalles: false,
             articulo_detalle: {},
-            usuario_carrito: [],
+            usuario_carrito: {}
         }
 
     },
@@ -253,7 +253,8 @@ export default {
             .then(res=>{
 
                 console.log(res.data)
-                this.usuario_carrito = res.data[0].carrito;
+                // this.usuario_carrito = res.data[0].carrito;
+                this.usuario_carrito = res.data[0];
 
             })
             .catch(e=>{
@@ -262,7 +263,24 @@ export default {
 
             })
 
-        }
+        },
+        Agregar_a_carrito(item) {
+
+            this.usuario_carrito.carrito.push(item);
+            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+                .then(res => {
+
+                    this.usuario_carrito.username = res.data.username;
+                    this.usuario_carrito.carrito = res.data.carrito;
+                    this.usuario_carrito.password = res.data.password;
+
+                })
+                .catch(e => {
+
+                    console.log(e.response)
+                })
+
+        },
 
     },
 
