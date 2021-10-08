@@ -39,11 +39,23 @@
               <th style="width: 350px; font-size: 20px;">Recomendaciones</th>
             </tr>
             <tr>
-              <td style="height: 100px;">Tarjeta madre</td>
+              <td style="height: 100px;"><b>TARJETA MADRE</b></td>
               <td>
-                <div v-for="(item, index) in mother" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                <div class="row" v-for="(item, index) in mother" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
+
+                  <div class="col-md-9 well">
+                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                  </div>
+                  <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
+                    <v-btn
+                      fab
+                      dark
+                      small style="background-color: red;">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
+
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -52,11 +64,21 @@
               </td>
             </tr>
             <tr>
-              <td style="height: 100px;">Procesador (CPU)</td>
+              <td style="height: 100px;"><b>PROCESADOR (CPU)</b></td>
               <td>
-                <div v-for="(item, index) in procesador" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                <div class="row" v-for="(item, index) in procesador" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
+                  <div class="col-md-9 well">
+                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                  </div>
+                  <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
+                    <v-btn
+                      fab
+                      dark
+                      small style="background-color: red;">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -64,11 +86,21 @@
                 usado para {{selected}}</td>
             </tr>
             <tr>
-              <td style="height: 100px;">Tarjetas de video(GPU)</td>
+              <td style="height: 100px;"><b>TARJETAS DE VIDEO (GPU)</b></td>
               <td>
-                <div v-for="(item, index) in video" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                <div class="row" v-for="(item, index) in video" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
+                  <div class="col-md-9 well">
+                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                  </div>
+                  <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
+                    <v-btn
+                      fab
+                      dark
+                      small style="background-color: red;">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -76,11 +108,21 @@
                 usado para {{selected}}</td>
             </tr>
             <tr>
-              <td style="height: 100px;">Memoria RAM</td>
+              <td style="height: 100px;"><b>MEMORIA RAM</b></td>
               <td>
-                <div v-for="(item, index) in ram" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                <div class="row" v-for="(item, index) in ram" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
+                  <div class="col-md-9 well">
+                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                  </div>
+                  <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
+                    <v-btn
+                      fab
+                      dark
+                      small style="background-color: red;">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -88,11 +130,21 @@
                 usado para {{selected}}</td>
             </tr>
             <tr>
-              <td style="height: 100px;">Fuente de energia</td>
+              <td style="height: 100px;"><b>FUENTE DE ENERGIA</b></td>
               <td>
-                <div v-for="(item, index) in f_energia" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                <div class="row" v-for="(item, index) in f_energia" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
+                  <div class="col-md-9 well">
+                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                  </div>
+                  <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
+                    <v-btn
+                      fab
+                      dark
+                      small style="background-color: red;">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -100,11 +152,21 @@
                 usado para {{selected}}</td>
             </tr>
             <tr>
-              <td style="height: 100px;">Almacenamiento</td>
+              <td style="height: 100px;"><b>ALMACENAMIENTO</b></td>
               <td>
-                <div v-for="(item, index) in almacenamiento" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                <div class="row" v-for="(item, index) in almacenamiento" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
+                  <div class="col-md-9 well">
+                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                  </div>
+                  <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
+                    <v-btn
+                      fab
+                      dark
+                      small style="background-color: red;">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -112,11 +174,21 @@
                 usado para {{selected}}</td>
             </tr>
             <tr>
-              <td style="height: 100px;">Refrigeracion</td>
+              <td style="height: 100px;"><b>REFRIGERACION</b></td>
               <td>
-                <div v-for="(item, index) in refrigeracion" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                <div class="row" v-for="(item, index) in refrigeracion" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
+                  <div class="col-md-9 well">
+                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                  </div>
+                  <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
+                    <v-btn
+                      fab
+                      dark
+                      small style="background-color: red;">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -124,11 +196,21 @@
                 usado para {{selected}}</td>
             </tr>
             <tr>
-              <td style="height: 100px;">Case</td>
+              <td style="height: 100px;"><b>CASE</b></td>
               <td>
-                <div v-for="(item, index) in tipo_case" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                <div class="row" v-for="(item, index) in tipo_case" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
+                  <div class="col-md-9 well">
+                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                  </div>
+                  <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
+                    <v-btn
+                      fab
+                      dark
+                      small style="background-color: red;">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>

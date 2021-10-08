@@ -8,7 +8,7 @@
         list-style: none;
         margin: auto;
         padding: 0px;
-        width: 954.4px;
+        width: 951px;
     }
 
     .menu li{

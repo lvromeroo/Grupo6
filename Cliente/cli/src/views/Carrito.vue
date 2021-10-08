@@ -17,6 +17,7 @@
                             </div>
                             <b-card-text style="text-align: center; font-size: 22px; padding: 5px 0px 0px 0px; color:white; text-transform: uppercase;">
                                 {{username}}</b-card-text>
+                            <b-card-text style="text-align: center;"><a href="#" style="color: #dce1f5;">Acceso de administrador</a></b-card-text> <!-- Acceso a opciones de administrador -->
                         </b-card>
                         <br>
 
@@ -24,7 +25,7 @@
                         <div class="col-8">
                             <b-button-group vertical style="color:white; width: 230px;" >
                                 <b-button variant="primary" style="font-size: 20px;"><a href="/diseno" style="text-decoration: none; color:white;">Diseños</a></b-button>
-                                <b-button variant="primary" style="font-size: 20px;">Carrito de compras</b-button>
+                                <b-button variant="primary" style="font-size: 20px;"><a href="/carrito" style="text-decoration: none; color:white;">Carrito de compras</a></b-button>
                                 <b-button variant="primary" style="font-size: 20px;"><a href="/register" style="text-decoration: none; color:white;">Cerrar sesion</a></b-button>
                             </b-button-group>
                         </div>
@@ -66,45 +67,108 @@
                             <div style="padding:15px 0px;" class="row" v-for="(item, index) in articulos" :key="index">
 
                                 <div class="col-md-4 well">
-                                    <img :src="resolve_img_url(item.imagen)" :alt="`${item.imagen}`" style="width: 250px; height: 187.5px;"/>
+                                    <img :src="resolve_img_url(item[0].imagen)" :alt="`${item[0].imagen}`" style="width: 250px; height: 187.5px;"/>
                                 </div>
                                 <div class="col-md-5 well" style="padding: 15px;">
-                                    <h2>{{item.nombreComercial}}</h2>
+                                    <h2>{{item[0].nombreComercial}}</h2>
                                     <br>
                         
-                                    <h3>Precio: COP$ {{item.precioCop}}</h3>
-                                    <h3 style="padding: 0px 0px 0px 150px;">$ {{item.preciodolar}}</h3>
+                                    <h3>Precio: COP$ {{item[0].precioCop}}</h3>
+                                    <h3 style="padding: 0px 0px 0px 150px;">$ {{item[0].preciodolar}}</h3>
                                 </div>
                                 <div class="col-md-3 well">
                                     <div class="d-grid gap-2 col-10 mx-auto" style="padding: 50px 0px;">
-                                        <button class="btn btn-info" type="button" style="color:white;" @click="activarDetalles(item._id)">Ver detalles</button>
-                                        <button class="btn btn-danger" type="button" style="color:white" @click="Agregar_a_diseno([item._id, categoria])">Eliminar</button>
+                                        <button class="btn btn-info" type="button" style="color:white;" @click="activarDetalles(item[0]._id); categoria=item[1];">Ver detalles</button>
+                                        <button class="btn btn-danger" type="button" style="color:white">Eliminar</button>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row" style="padding: 5px 0px 0px 250px;">
+                            <br>
+
+                            <div class="col-md-5 well">
+                                <h4 style="padding: 0px 0px 0px 15px; font-size: 30px;">Agregar articulo</h4>
+                                </div>
+                                <div class="col-md-2 well">
+                                <a href="/componentes" style="color: #20eb09; text-decoration: none;"><v-btn
+                                    fab
+                                    dark
+                                    small style="background-color: #20eb09;">
+                                    <v-icon>mdi-plus</v-icon>
+                                </v-btn></a>
+                                </div>
+
                             </div>
 
 
                         </section>
                         <br>
                         <!-- Fin vista de listado de articulos -->
-                        <div class="row" style="padding: 5px 0px 0px 250px;">
-
-                            <div class="col-md-5 well">
-                            <h4 style="padding: 0px 0px 0px 15px; font-size: 30px;">Agregar articulo</h4>
-                            </div>
-                            <div class="col-md-2 well">
-                            <a href="/componentes" style="color: #20eb09; text-decoration: none;"><v-btn
-                                fab
-                                dark
-                                small style="background-color: #20eb09;">
-                                <v-icon>mdi-plus</v-icon>
-                            </v-btn></a>
-                            </div>
-
-                        </div>
 
                     </section>
                     <!-- Fin seccion de vista de articulos --> 
+                    <!-- Inicio vista de los detalles de un articulo -->
+
+                    <section v-if="detalles">
+
+                        <div style="padding:15px 0px;" class="row">
+
+                            <div class="col-md-4 well">
+                                    <img :src="resolve_img_url(articulo_detalle.imagen)" :alt="`${articulo_detalle.imagen}`" style="width: 350px; height: 262.5px;"/>
+                            </div>
+                            <div class="col-md-8 well" style="padding: 30px;">
+                                <div class="d-grid gap-2 col-6 mx-auto" style="padding: 30px 0px;">
+                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" >Eliminar</button>
+                                    <button class="btn btn-info" type="button" style="height: 55px; font-size: 20px; color: white;" @click="detalles=false" >Regresar</button>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <br>
+                        <div>
+
+                            <table> 
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 270px; vertical-align:text-top;"><h3>Nombre tecnico:</h3></th>
+                                        <td style="font-size:20px; width: 440px; text-align: justify; ">{{articulo_detalle.nombreTecnico}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th style=""><h3>Nombre comercial:</h3></th>
+                                        <td style="font-size:20px; text-align: justify;">{{articulo_detalle.nombreComercial}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th style=""><h3>Marca:</h3></th>
+                                        <td style="font-size:20px; text-align: justify;">{{articulo_detalle.marca}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th style="vertical-align:text-top;"><h3>Especificaciones:</h3></th>
+                                        <td style="font-size:20px; text-align: justify;">{{articulo_detalle.especificaciones}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th style=""><h3>Precio en COP:</h3></th>
+                                        <td style="font-size:20px; text-align: justify;">${{articulo_detalle.precioCop}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th style=""><h3>Precio en dolares:</h3></th>
+                                        <td style="font-size:20px; text-align: justify;">${{articulo_detalle.preciodolar}}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                            <br>
+
+                            <div style="padding: 20px 0px 0px 600px;">
+                                <button class="btn btn-secondary" type="button" style="width: 180px; height: 45px; font-size: 22px; color:white;" @click="detalles=false">Regresar</button>
+                            </div>
+                        </div>
+                        <br>
+
+                    </section>
+                    <br>
+
+                    <!-- Fin vista de los detalles de un articulo -->
                 </div>
             </div>
         </div>
@@ -132,6 +196,9 @@ export default {
 
             carrito:[],
             articulos: [],
+            categoria: 'mother',
+            detalles: false,
+            articulo_detalle: {},
             preciocop: 0,
             preciodolar: 0,
             username: 'Username',
@@ -155,7 +222,7 @@ export default {
             this.axios.get('/' + this.carrito[this.j][1] + '/' + this.carrito[this.j][0])
 
             .then(res=>{
-                this.articulos.push(res.data);
+                this.articulos.push([res.data, this.carrito[this.j][1]]);
                 this.preciocop += res.data.precioCop;
                 this.preciodolar += res.data.preciodolar;
                 if (this.j < i){
@@ -203,6 +270,24 @@ export default {
             .catch(e=>{
 
                 console.log(e.response);
+
+            })
+
+        },
+        activarDetalles (id) {
+
+            this.detalles = true;
+            console.log(id);
+            this.axios.get(`/${this.categoria}/${id}`)
+
+            .then(res=>{
+
+                this.articulo_detalle = res.data;
+
+            })
+            .catch(e=>{
+
+                console.log(e.response)
 
             })
 
