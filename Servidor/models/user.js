@@ -6,7 +6,9 @@ const saltRaounds = 10;
 const UserSchema = new Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true},
-    carrito: {type: Array, default: []}
+    carrito: {type: Array, default: []},
+    diseno: {type: Array, default: []}
+
 });
 
 UserSchema.pre('save', function(next){

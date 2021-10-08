@@ -79,7 +79,7 @@
                                 <div class="col-md-3 well">
                                     <div class="d-grid gap-2 col-10 mx-auto" style="padding: 20px 0px;">
                                         <button class="btn btn-primary" type="button" style="color:white" @click="activarDetalles(item._id)">Ver detalles</button>
-                                        <button class="btn btn-primary" type="button" style="color:white" >Agregar al diseño</button>
+                                        <button class="btn btn-primary" type="button" style="color:white" @click="Agregar_a_diseno([item._id, categoria])">Agregar al diseño</button>
                                         <button class="btn btn-primary" type="button" style="color:white;" @click="Agregar_a_carrito([item._id, categoria])">Agregar al carrito</button>
                                     </div>
                                 </div>
@@ -101,8 +101,8 @@
                                 </div>
                                 <div class="col-md-8 well" style="padding: 30px;">
                                     <div class="d-grid gap-2 col-7 mx-auto" style="padding: 30px 0px;">
-                                        <button class="btn btn-primary" type="button" style="height: 60px; font-size: 20px; color: white;">Agregar al diseño</button>
-                                        <button class="btn btn-primary" type="button" style="height: 60px; font-size: 20px; color: white;">Agregar al carrito</button>
+                                        <button class="btn btn-primary" type="button" style="height: 60px; font-size: 20px; color: white;" @click="Agregar_a_diseno([articulo_detalle._id, categoria])">Agregar al diseño</button>
+                                        <button class="btn btn-primary" type="button" style="height: 60px; font-size: 20px; color: white;" @click="Agregar_a_carrito([articulo_detalle._id, categoria])">Agregar al carrito</button>
                                     </div>
                                 </div>
                             
@@ -157,8 +157,6 @@
                 </div>
             </div>
         </div>
-        <h1>(Porbando) Carrito de compras</h1>
-        <h1>{{usuario_carrito}}</h1>
         <piepagina/>
     </body>
 </template>
@@ -253,7 +251,6 @@ export default {
             .then(res=>{
 
                 console.log(res.data)
-                // this.usuario_carrito = res.data[0].carrito;
                 this.usuario_carrito = res.data[0];
 
             })
@@ -272,6 +269,25 @@ export default {
 
                     this.usuario_carrito.username = res.data.username;
                     this.usuario_carrito.carrito = res.data.carrito;
+                    this.usuario_carrito.diseno = res.data.diseno;
+                    this.usuario_carrito.password = res.data.password;
+
+                })
+                .catch(e => {
+
+                    console.log(e.response)
+                })
+
+        },
+        Agregar_a_diseno(item) {
+
+            this.usuario_carrito.diseno.push(item);
+            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+                .then(res => {
+
+                    this.usuario_carrito.username = res.data.username;
+                    this.usuario_carrito.carrito = res.data.carrito;
+                    this.usuario_carrito.diseno = res.data.diseno;
                     this.usuario_carrito.password = res.data.password;
 
                 })
