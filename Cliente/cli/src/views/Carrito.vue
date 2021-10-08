@@ -1,5 +1,20 @@
 <template>
-    <h1>{{articulos}}</h1>
+    <body>
+
+        <div class = "row" v-for="(item, index) in articulos" :key="index">
+            <h4>Articulo{{index}}</h4>
+            <div class="col-md-4 well">
+                <img :src="resolve_img_url(item.imagen)" :alt="`${item.imagen}`" style="width: 250px; height: 187.5px;"/>
+            </div>
+            <div class="col-md-5 well" style="padding: 15px;">
+                <h2>{{item.nombreComercial}}</h2>
+                <br>
+    
+                <h3>Precio: COP$ {{item.precioCop}}</h3>
+                <h3 style="padding: 0px 0px 0px 150px;">$ {{item.preciodolar}}</h3>
+            </div>
+        </div>
+    </body>
 </template>
 
 
@@ -50,10 +65,6 @@ export default {
 
         },
 
-        guardar_Articulos(){
-
-        },
-
         resolve_img_url: function (path) {
 
             try {
@@ -91,4 +102,3 @@ export default {
 }
 
 </script>
-</template>
