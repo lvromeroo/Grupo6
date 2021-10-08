@@ -42,7 +42,8 @@
               <td style="height: 100px;">Tarjeta madre</td>
               <td>
                 <div v-for="(item, index) in mother" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p>{{item.nombreComercial}}<br>Precio: COP$ {{item.precioCop}}<br>$ {{item.preciodolar}}</p>
+                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -54,7 +55,8 @@
               <td style="height: 100px;">Procesador (CPU)</td>
               <td>
                 <div v-for="(item, index) in procesador" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p>{{item.nombreComercial}}<br>Precio: COP$ {{item.precioCop}}<br>$ {{item.preciodolar}}</p>
+                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -65,7 +67,8 @@
               <td style="height: 100px;">Tarjetas de video(GPU)</td>
               <td>
                 <div v-for="(item, index) in video" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p>{{item.nombreComercial}}<br>Precio: COP$ {{item.precioCop}}<br>$ {{item.preciodolar}}</p>
+                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -76,7 +79,8 @@
               <td style="height: 100px;">Memoria RAM</td>
               <td>
                 <div v-for="(item, index) in ram" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p>{{item.nombreComercial}}<br>Precio: COP$ {{item.precioCop}}<br>$ {{item.preciodolar}}</p>
+                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -87,7 +91,8 @@
               <td style="height: 100px;">Fuente de energia</td>
               <td>
                 <div v-for="(item, index) in f_energia" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p>{{item.nombreComercial}}<br>Precio: COP$ {{item.precioCop}}<br>$ {{item.preciodolar}}</p>
+                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -98,7 +103,8 @@
               <td style="height: 100px;">Almacenamiento</td>
               <td>
                 <div v-for="(item, index) in almacenamiento" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p>{{item.nombreComercial}}<br>Precio: COP$ {{item.precioCop}}<br>$ {{item.preciodolar}}</p>
+                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -109,7 +115,8 @@
               <td style="height: 100px;">Refrigeracion</td>
               <td>
                 <div v-for="(item, index) in refrigeracion" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p>{{item.nombreComercial}}<br>Precio: COP$ {{item.precioCop}}<br>$ {{item.preciodolar}}</p>
+                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -120,7 +127,8 @@
               <td style="height: 100px;">Case</td>
               <td>
                 <div v-for="(item, index) in tipo_case" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
-                  <p>{{item.nombreComercial}}<br>Precio: COP$ {{item.precioCop}}<br>$ {{item.preciodolar}}</p>
+                  <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
                 </div>
                 <a href="/componentes">Ver articulos</a>
               </td>
@@ -146,7 +154,7 @@
           <v-btn
             fab
             dark
-            small style="background-color: blue;">
+            small style="background-color: #20eb09;">
             <v-icon>mdi-plus</v-icon>
           </v-btn>
         </div>
