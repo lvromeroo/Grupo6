@@ -62,7 +62,7 @@
 
                         <!-- Inicio vista de listado de articulos -->
 
-                        <section v-if="!detalles">
+                        <section v-if="!detalles & !actualizar">
 
                             <div style="padding:15px 0px;" class="row" v-for="(item, index) in articulos" :key="index">
 
@@ -79,7 +79,7 @@
                                 <div class="col-md-3 well">
                                     <div class="d-grid gap-2 col-10 mx-auto" style="padding: 50px 0px;">
                                         <button class="btn btn-info" type="button" style="color:white;" @click="activarDetalles(item[0]._id); categoria=item[1];">Ver detalles</button>
-                                        <button class="btn btn-danger" type="button" style="color:white">Eliminar</button>
+                                        <button class="btn btn-danger" type="button" style="color:white" @click="Eliminar_de_carrito(index);">Eliminar</button>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                             </div>
                             <div class="col-md-8 well" style="padding: 30px;">
                                 <div class="d-grid gap-2 col-6 mx-auto" style="padding: 30px 0px;">
-                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" >Eliminar</button>
+                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" @click="Eliminar_de_carrito(index); detalles=false">Eliminar</button>
                                     <button class="btn btn-info" type="button" style="height: 55px; font-size: 20px; color: white;" @click="detalles=false" >Regresar</button>
                                 </div>
                             </div>
@@ -166,7 +166,6 @@
                         <br>
 
                     </section>
-                    <br>
 
                     <!-- Fin vista de los detalles de un articulo -->
                 </div>
@@ -198,7 +197,9 @@ export default {
             articulos: [],
             categoria: 'mother',
             detalles: false,
+            actualizar: false,
             articulo_detalle: {},
+            usuario_carrito: {},
             preciocop: 0,
             preciodolar: 0,
             username: 'Username',
@@ -262,6 +263,7 @@ export default {
             .then(res=>{
 
                 console.log(res.data)
+                this.usuario_carrito = res.data[0];
                 this.carrito = res.data[0].carrito;
                 this.username = res.data[0].username;
                 this.VerCarrito();
@@ -290,6 +292,26 @@ export default {
                 console.log(e.response)
 
             })
+
+        },
+        Eliminar_de_carrito(indice) {
+
+            this.usuario_carrito.carrito.splice(indice, 1);
+            this.articulos.splice(indice, 1);
+
+            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+                .then(res => {
+
+                    this.usuario_carrito.username = res.data.username;
+                    this.usuario_carrito.carrito = res.data.carrito;
+                    this.usuario_carrito.diseno = res.data.diseno;
+                    this.usuario_carrito.password = res.data.password;
+
+                })
+                .catch(e => {
+
+                    console.log(e.response)
+                })
 
         }
 
