@@ -302,6 +302,7 @@
         tipo_case: [],
         preciocop: 0,
         preciodolar: 0,
+        usuario_carrito: {},
         j: 0
 
 
@@ -383,6 +384,25 @@
                 console.log(e.response);
 
             })
+
+        },
+        Eliminar_de_carrito(indice) {
+
+            // this.indice[1].splice(indice[0], 1);
+
+            // this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+            //     .then(res => {
+
+            //         this.usuario_carrito.username = res.data.username;
+            //         this.usuario_carrito.carrito = res.data.carrito;
+            //         this.usuario_carrito.diseno = res.data.diseno;
+            //         this.usuario_carrito.password = res.data.password;
+
+            //     })
+            //     .catch(e => {
+
+            //         console.log(e.response)
+            //     })
 
         }
 
