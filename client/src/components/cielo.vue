@@ -40,7 +40,7 @@
                     <router-link to = "/inicio">INICIO</router-link>
                 </li>
                 <li>
-                    <a href="">DISEÑO</a>
+                    <a href="/diseno">DISEÑO</a>
                 </li>
                 <li>
                     <router-link to="/armado" >ARMADO</router-link>
@@ -49,7 +49,7 @@
                     <router-link to="/componentes" >COMPONENTES</router-link>
                 </li>
                 <li>
-                    <a href="../views/Componentes.vue">CUENTA</a>
+                    <router-link to="/cuenta">CUENTA</router-link>
                 </li>
               </ul>
           </nav>

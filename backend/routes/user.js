@@ -21,7 +21,7 @@ router.post('/nuevo-user', async(req, res) => {
     }
 });
 
-router.post('/autenticar', (req, res) =>{
+router.post('/autenticar', async(req, res) =>{
     const {username, password} = req.body;
 
     User.findOne({username}, (err, user) =>{
@@ -36,7 +36,11 @@ router.post('/autenticar', (req, res) =>{
                     res.status(500).send('error al autenticar');
 
                 }else if(result){
-                    res.status(200).json({mensaje:'usuario autenticado correctamente'});                  
+                    res.status(200).json({mensaje:'usuario autenticado correctamente'}); 
+                    // const {username, password} = req.body;
+                    // const clienteDb = User.findOne({username:'aba'},{_id:1});
+                    // var clien = clienteDb._id;
+                    // console.log(clienteDb);                 
                 }else{
                     res.status(500).send('usuario o contraseña incorrecta');
                 }

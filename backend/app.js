@@ -5,6 +5,8 @@ import path from 'path';
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const engine = require('ejs-mate');
+const multer = require('multer');
+const uuid = require ('uuid').v4;
 
 
 
@@ -27,8 +29,14 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));// en la documentacion estaba true
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'public/img/uploads'),
+    filename: (req, file, cb, filename) =>{
+        cb(null, uuid() + path.extname(file.originalname));
+    }
+});
 
-
+app.use(multer({ storage: storage}).single('image'));
 //motor de plantillas
 // app.search('views', path.join(__dirname, 'views'));
 // app.engine("ejs", engine);
@@ -44,6 +52,9 @@ app.use('/api', require('./routes/articulo'));
 const history = require('connect-history-api-fallback');
 app.use(history());
 app.use(express.static(path.join(__dirname, 'public'))); // se puede modificar debido a que public no será la unica direccion
+
+
+
 
 //puerto
 app.set('puerto', process.env.PORT || 3000);
