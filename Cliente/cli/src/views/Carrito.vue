@@ -17,7 +17,7 @@
                             </div>
                             <b-card-text style="text-align: center; font-size: 22px; padding: 5px 0px 0px 0px; color:white; text-transform: uppercase;">
                                 {{username}}</b-card-text>
-                            <b-card-text style="text-align: center;"><a href="#" style="color: #dce1f5;">Acceso de administrador</a></b-card-text> <!-- Acceso a opciones de administrador -->
+                            <b-card-text style="text-align: center;"><a href="/prueba" style="color: #dce1f5;">Acceso de administrador</a></b-card-text> <!-- Acceso a opciones de administrador -->
                         </b-card>
                         <br>
 
@@ -79,7 +79,8 @@
                                 <div class="col-md-3 well">
                                     <div class="d-grid gap-2 col-10 mx-auto" style="padding: 50px 0px;">
                                         <button class="btn btn-info" type="button" style="color:white;" @click="activarDetalles(item[0]._id); categoria=item[1];">Ver detalles</button>
-                                        <button class="btn btn-danger" type="button" style="color:white" @click="Eliminar_de_carrito(index);">Eliminar</button>
+                                        <button class="btn btn-danger" type="button" style="color:white" @click="Eliminar_de_carrito(index); preciocop -= item[0].precioCop; 
+                                        preciodolar -= item[0].preciodolar">Eliminar</button>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +120,8 @@
                             </div>
                             <div class="col-md-8 well" style="padding: 30px;">
                                 <div class="d-grid gap-2 col-6 mx-auto" style="padding: 30px 0px;">
-                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" @click="Eliminar_de_carrito(index); detalles=false">Eliminar</button>
+                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" @click="Eliminar_de_carrito(index); detalles=false; 
+                                    preciocop -= articulo_detalle.precioCop; preciodolar -= articulo_detalle.preciodolar">Eliminar</button>
                                     <button class="btn btn-info" type="button" style="height: 55px; font-size: 20px; color: white;" @click="detalles=false" >Regresar</button>
                                 </div>
                             </div>

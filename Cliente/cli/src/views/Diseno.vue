@@ -44,14 +44,15 @@
                 <div class="row" v-for="(item, index) in mother" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
 
                   <div class="col-md-9 well">
-                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                    <p><b>{{item[0].nombreComercial}}</b><br>Precio: COP$ {{item[0].precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item[0].preciodolar}}</p>
                   </div>
                   <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
                     <v-btn
                       fab
                       dark
-                      small style="background-color: red;">
+                      small style="background-color: red;"
+                      @click="Eliminar_de_diseno([item[1], index, 'mother']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -68,14 +69,15 @@
               <td>
                 <div class="row" v-for="(item, index) in procesador" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
                   <div class="col-md-9 well">
-                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                    <p><b>{{item[0].nombreComercial}}</b><br>Precio: COP$ {{item[0].precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item[0].preciodolar}}</p>
                   </div>
                   <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
                     <v-btn
                       fab
                       dark
-                      small style="background-color: red;">
+                      small style="background-color: red;"
+                      @click="Eliminar_de_diseno([item[1], index, 'procesador']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -90,14 +92,15 @@
               <td>
                 <div class="row" v-for="(item, index) in video" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
                   <div class="col-md-9 well">
-                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                    <p><b>{{item[0].nombreComercial}}</b><br>Precio: COP$ {{item[0].precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item[0].preciodolar}}</p>
                   </div>
                   <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
                     <v-btn
                       fab
                       dark
-                      small style="background-color: red;">
+                      small style="background-color: red;"
+                      @click="Eliminar_de_diseno([item[1], index, 'video']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -112,14 +115,15 @@
               <td>
                 <div class="row" v-for="(item, index) in ram" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
                   <div class="col-md-9 well">
-                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                    <p><b>{{item[0].nombreComercial}}</b><br>Precio: COP$ {{item[0].precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item[0].preciodolar}}</p>
                   </div>
                   <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
                     <v-btn
                       fab
                       dark
-                      small style="background-color: red;">
+                      small style="background-color: red;"
+                      @click="Eliminar_de_diseno([item[1], index, 'ram']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -134,14 +138,15 @@
               <td>
                 <div class="row" v-for="(item, index) in f_energia" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
                   <div class="col-md-9 well">
-                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                    <p><b>{{item[0].nombreComercial}}</b><br>Precio: COP$ {{item[0].precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item[0].preciodolar}}</p>
                   </div>
                   <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
                     <v-btn
                       fab
                       dark
-                      small style="background-color: red;">
+                      small style="background-color: red;"
+                      @click="Eliminar_de_diseno([item[1], index, 'f_energia']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -156,14 +161,15 @@
               <td>
                 <div class="row" v-for="(item, index) in almacenamiento" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
                   <div class="col-md-9 well">
-                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                    <p><b>{{item[0].nombreComercial}}</b><br>Precio: COP$ {{item[0].precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item[0].preciodolar}}</p>
                   </div>
                   <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
                     <v-btn
                       fab
                       dark
-                      small style="background-color: red;">
+                      small style="background-color: red;"
+                      @click="Eliminar_de_diseno([item[1], index, 'almacenamiento']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -178,14 +184,15 @@
               <td>
                 <div class="row" v-for="(item, index) in refrigeracion" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
                   <div class="col-md-9 well">
-                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                    <p><b>{{item[0].nombreComercial}}</b><br>Precio: COP$ {{item[0].precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item[0].preciodolar}}</p>
                   </div>
                   <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
                     <v-btn
                       fab
                       dark
-                      small style="background-color: red;">
+                      small style="background-color: red;"
+                      @click="Eliminar_de_diseno([item[1], index, 'refrigeracion']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -200,14 +207,15 @@
               <td>
                 <div class="row" v-for="(item, index) in tipo_case" :key="index" style="text-align:left; padding: 5px 0px 0px 30px;">
                   <div class="col-md-9 well">
-                    <p><b>{{item.nombreComercial}}</b><br>Precio: COP$ {{item.precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item.preciodolar}}</p>
+                    <p><b>{{item[0].nombreComercial}}</b><br>Precio: COP$ {{item[0].precioCop}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{item[0].preciodolar}}</p>
                   </div>
                   <div class="col-md-2 well" style="padding: 20px 0px 0px 0px;">
                     <v-btn
                       fab
                       dark
-                      small style="background-color: red;">
+                      small style="background-color: red;"
+                      @click="Eliminar_de_diseno([item[1], index, 'tipo_case']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -236,15 +244,14 @@
           <v-btn
             fab
             dark
-            small style="background-color: #20eb09;">
+            small style="background-color: #20eb09;"
+            @click="Guardar_diseno();">
             <v-icon>mdi-plus</v-icon>
           </v-btn>
         </div>
 
       </div>
       <br>
-
-      
     </div>
     <piepagina/>
   </body>
@@ -327,28 +334,28 @@
                 this.preciodolar += res.data.preciodolar;
 
                 if (this.carrito[this.j][1] == 'mother'){
-                  this.mother.push(res.data);
+                  this.mother.push([res.data, this.j]);
                 }
                 else if (this.carrito[this.j][1] == 'procesador'){
-                  this.procesador.push(res.data);
+                  this.procesador.push([res.data, this.j]);
                 }
                 else if (this.carrito[this.j][1] == 'video'){
-                  this.video.push(res.data);
+                  this.video.push([res.data, this.j]);
                 }
                 else if (this.carrito[this.j][1] == 'ram'){
-                  this.ram.push(res.data);
+                  this.ram.push([res.data, this.j]);
                 }
                 else if (this.carrito[this.j][1] == 'f_energia'){
-                  this.f_energia.push(res.data);
+                  this.f_energia.push([res.data, this.j]);
                 }
                 else if (this.carrito[this.j][1] == 'almacenamiento'){
-                  this.almacenamiento.push(res.data);
+                  this.almacenamiento.push([res.data, this.j]);
                 }
                 else if (this.carrito[this.j][1] == 'refrigeracion'){
-                  this.refrigeracion.push(res.data);
+                  this.refrigeracion.push([res.data, this.j]);
                 }
                 else {
-                  this.tipo_case.push(res.data);
+                  this.tipo_case.push([res.data, this.j]);
                 }
 
 
@@ -375,6 +382,7 @@
             .then(res=>{
 
                 console.log(res.data)
+                this.usuario_carrito = res.data[0];
                 this.carrito = res.data[0].diseno;
                 this.VerCarrito();
 
@@ -386,23 +394,161 @@
             })
 
         },
-        Eliminar_de_carrito(indice) {
+        Eliminar_de_diseno(indice) {
 
-            // this.indice[1].splice(indice[0], 1);
+            this.usuario_carrito.diseno.splice(indice[0], 1);
 
-            // this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
-            //     .then(res => {
+            if (indice[2] === 'mother') {
+              this.mother.splice(indice[1], 1);
+            }
+            else if(indice[2] === 'procesador') {
+              this.procesador.splice(indice[1], 1);
+            }
+            else if(indice[2] === 'video') {
+              this.video.splice(indice[1], 1);
+            }
+            else if(indice[2] === 'ram') {
+              this.ram.splice(indice[1], 1);
+            }
+            else if(indice[2] === 'f_energia') {
+              this.f_energia.splice(indice[1], 1);
+            }
+            else if(indice[2] === 'almacenamiento') {
+              this.almacenamiento.splice(indice[1], 1);
+            }
+            else if(indice[2] === 'refrigeracion') {
+              this.refrigeracion.splice(indice[1], 1);
+            }
+            else if(indice[2] === 'tipo_case') {
+              this.tipo_case.splice(indice[1], 1);
+            }
 
-            //         this.usuario_carrito.username = res.data.username;
-            //         this.usuario_carrito.carrito = res.data.carrito;
-            //         this.usuario_carrito.diseno = res.data.diseno;
-            //         this.usuario_carrito.password = res.data.password;
+            for (let i=0; i < this.mother.length; i++){
+              if (this.mother[i][1] > indice[0]){
+                this.mother[i][1] -= 1;
+              }
+            }
+            for (let i=0; i < this.procesador.length; i++){
+              if (this.procesador[i][1] > indice[0]){
+                this.procesador[i][1] -= 1;
+              }
+            }
+            for (let i=0; i < this.video.length; i++){
+              if (this.video[i][1] > indice[0]){
+                this.video[i][1] -= 1;
+              }
+            }
+            for (let i=0; i < this.ram.length; i++){
+              if (this.ram[i][1] > indice[0]){
+                this.ram[i][1] -= 1;
+              }
+            }
+            for (let i=0; i < this.f_energia.length; i++){
+              if (this.f_energia[i][1] > indice[0]){
+                this.f_energia[i][1] -= 1;
+              }
+            }
+            for (let i=0; i < this.almacenamiento.length; i++){
+              if (this.almacenamiento[i][1] > indice[0]){
+                this.almacenamiento[i][1] -= 1;
+              }
+            }
+            for (let i=0; i < this.refrigeracion.length; i++){
+              if (this.refrigeracion[i][1] > indice[0]){
+                this.refrigeracion[i][1] -= 1;
+              }
+            }
+            for (let i=0; i < this.tipo_case.length; i++){
+              if (this.tipo_case[i][1] > indice[0]){
+                this.tipo_case[i][1] -= 1;
+              }
+            }
+            
 
-            //     })
-            //     .catch(e => {
+            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+                .then(res => {
 
-            //         console.log(e.response)
-            //     })
+                    this.usuario_carrito.username = res.data.username;
+                    this.usuario_carrito.carrito = res.data.carrito;
+                    this.usuario_carrito.diseno = res.data.diseno;
+                    this.usuario_carrito.password = res.data.password;
+
+                })
+                .catch(e => {
+
+                    console.log(e.response)
+                })
+
+        },
+
+        Guardar_diseno() {
+
+            for (let i=0; i < this.mother.length; i++){
+
+              this.usuario_carrito.carrito.push([this.mother[i][0]._id, "mother"]);
+              
+            }
+            for (let i=0; i < this.procesador.length; i++){
+
+              this.usuario_carrito.carrito.push([this.procesador[i][0]._id, "procesador"]);
+              
+            }
+            for (let i=0; i < this.video.length; i++){
+
+              this.usuario_carrito.carrito.push([this.video[i][0]._id, "video"]);
+              
+            }
+            for (let i=0; i < this.ram.length; i++){
+
+              this.usuario_carrito.carrito.push([this.ram[i][0]._id, "ram"]);
+              
+            }
+            for (let i=0; i < this.f_energia.length; i++){
+
+              this.usuario_carrito.carrito.push([this.f_energia[i][0]._id, "f_energia"]);
+              
+            }
+            for (let i=0; i < this.almacenamiento.length; i++){
+
+              this.usuario_carrito.carrito.push([this.almacenamiento[i][0]._id, "almacenamiento"]);
+              
+            }
+            for (let i=0; i < this.refrigeracion.length; i++){
+
+              this.usuario_carrito.carrito.push([this.refrigeracion[i][0]._id, "refrigeracion"]);
+              
+            }
+            for (let i=0; i < this.tipo_case.length; i++){
+
+              this.usuario_carrito.carrito.push([this.tipo_case[i][0]._id, "case"]);
+              
+            }
+
+            this.usuario_carrito.diseno = [];
+            this.mother = [];
+            this.procesador = [];
+            this.video = [];
+            this.ram = [];
+            this.f_energia = [];
+            this.almacenamiento = [];
+            this.refrigeracion = [];
+            this.tipo_case = [];
+            this.preciocop = 0;
+            this.preciodolar = 0;
+
+            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+                .then(res => {
+
+                    this.usuario_carrito.username = res.data.username;
+                    this.usuario_carrito.carrito = res.data.carrito;
+                    this.usuario_carrito.diseno = res.data.diseno;
+                    this.usuario_carrito.password = res.data.password;
+
+                })
+                .catch(e => {
+
+                    console.log(e.response)
+                })
 
         }
 
