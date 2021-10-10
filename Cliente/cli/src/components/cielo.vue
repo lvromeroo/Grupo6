@@ -8,7 +8,7 @@
         list-style: none;
         margin: auto;
         padding: 0px;
-        width: 954.4px;
+        width: 951px;
     }
 
     .menu li{
@@ -41,7 +41,7 @@
         <nav>
             <ul class="menu">
                 <li>
-                    <a href="">INICIO</a>
+                    <a href="/inicio">INICIO</a>
                 </li>
                 <li>
                     <a href="/diseno">DISEÑO</a>
@@ -53,7 +53,7 @@
                     <a href="/componentes">COMPONENTES</a>
                 </li>
                 <li>
-                    <a href="">CUENTA</a>
+                    <a href="/carrito">CUENTA</a>
                 </li>
               </ul>
           </nav>
