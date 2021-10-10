@@ -17,7 +17,7 @@
                             </div>
                             <b-card-text style="text-align: center; font-size: 22px; padding: 5px 0px 0px 0px; color:white; text-transform: uppercase;">
                                 {{username}}</b-card-text>
-                            <b-card-text style="text-align: center;"><a href="/prueba" style="color: #dce1f5;">Acceso de administrador</a></b-card-text> <!-- Acceso a opciones de administrador -->
+                            <b-card-text style="text-align: center;"><a href="/cuenta" style="color: #dce1f5;">Acceso de administrador</a></b-card-text> <!-- Acceso a opciones de administrador -->
                         </b-card>
                         <br>
 
@@ -120,7 +120,7 @@
                             </div>
                             <div class="col-md-8 well" style="padding: 30px;">
                                 <div class="d-grid gap-2 col-6 mx-auto" style="padding: 30px 0px;">
-                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" @click="Eliminar_de_carrito(index); detalles=false; 
+                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" @click="Eliminar_de_carrito(index); endetalles=true; 
                                     preciocop -= articulo_detalle.precioCop; preciodolar -= articulo_detalle.preciodolar">Eliminar</button>
                                     <button class="btn btn-info" type="button" style="height: 55px; font-size: 20px; color: white;" @click="detalles=false" >Regresar</button>
                                 </div>
@@ -199,6 +199,7 @@ export default {
             articulos: [],
             categoria: 'mother',
             detalles: false,
+            endetalles: false,
             actualizar: false,
             articulo_detalle: {},
             usuario_carrito: {},
@@ -298,22 +299,46 @@ export default {
         },
         Eliminar_de_carrito(indice) {
 
-            this.usuario_carrito.carrito.splice(indice, 1);
-            this.articulos.splice(indice, 1);
+            this.$swal({
+                title: '¿Estas seguro de que quieres eliminar el articulo?',
+                type: 'warning',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, Borrar',
+                cancelButtonText: 'Cancelar',
+                showCloseButton: true,
+                showLoaderOnConfirm: true
+            })
 
-            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
-                .then(res => {
+            .then(async(result)=>{
+                if(result.value) {
 
-                    this.usuario_carrito.username = res.data.username;
-                    this.usuario_carrito.carrito = res.data.carrito;
-                    this.usuario_carrito.diseno = res.data.diseno;
-                    this.usuario_carrito.password = res.data.password;
+                    if (this.endetalles){
+                        this.endetalles = false;
+                        this.detalles = false;
+                    }
 
+                    this.usuario_carrito.carrito.splice(indice, 1);
+                    this.articulos.splice(indice, 1);
+
+                }
+
+                this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+                    .then(res => {
+
+                        this.usuario_carrito.username = res.data.username;
+                        this.usuario_carrito.carrito = res.data.carrito;
+                        this.usuario_carrito.diseno = res.data.diseno;
+                        this.usuario_carrito.password = res.data.password;
+
+                    })
+                    .catch(e => {
+
+                        console.log(e.response)
+                    })
                 })
-                .catch(e => {
 
-                    console.log(e.response)
-                })
+            
 
         }
 

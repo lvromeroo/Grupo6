@@ -52,7 +52,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'mother']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
+                      @click="Eliminar_de_diseno([item[1], index, 'mother']); if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -77,7 +77,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'procesador']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
+                      @click="Eliminar_de_diseno([item[1], index, 'procesador']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -100,7 +100,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'video']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
+                      @click="Eliminar_de_diseno([item[1], index, 'video']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -123,7 +123,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'ram']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
+                      @click="Eliminar_de_diseno([item[1], index, 'ram']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -146,7 +146,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'f_energia']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
+                      @click="Eliminar_de_diseno([item[1], index, 'f_energia']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -169,7 +169,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'almacenamiento']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
+                      @click="Eliminar_de_diseno([item[1], index, 'almacenamiento']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -192,7 +192,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'refrigeracion']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
+                      @click="Eliminar_de_diseno([item[1], index, 'refrigeracion']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -215,7 +215,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'tipo_case']); preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar;">
+                      @click="Eliminar_de_diseno([item[1], index, 'tipo_case']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -310,6 +310,7 @@
         preciocop: 0,
         preciodolar: 0,
         usuario_carrito: {},
+        cambiarprecio: false,
         j: 0
 
 
@@ -396,74 +397,91 @@
         },
         Eliminar_de_diseno(indice) {
 
-            this.usuario_carrito.diseno.splice(indice[0], 1);
+            this.$swal({
+                title: '¿Estas seguro de que quieres eliminar el articulo?',
+                type: 'warning',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, Borrar',
+                cancelButtonText: 'Cancelar',
+                showCloseButton: true,
+                showLoaderOnConfirm: true
+            })
 
-            if (indice[2] === 'mother') {
-              this.mother.splice(indice[1], 1);
-            }
-            else if(indice[2] === 'procesador') {
-              this.procesador.splice(indice[1], 1);
-            }
-            else if(indice[2] === 'video') {
-              this.video.splice(indice[1], 1);
-            }
-            else if(indice[2] === 'ram') {
-              this.ram.splice(indice[1], 1);
-            }
-            else if(indice[2] === 'f_energia') {
-              this.f_energia.splice(indice[1], 1);
-            }
-            else if(indice[2] === 'almacenamiento') {
-              this.almacenamiento.splice(indice[1], 1);
-            }
-            else if(indice[2] === 'refrigeracion') {
-              this.refrigeracion.splice(indice[1], 1);
-            }
-            else if(indice[2] === 'tipo_case') {
-              this.tipo_case.splice(indice[1], 1);
-            }
+            .then(async(result)=>{
+                if(result.value) {
 
-            for (let i=0; i < this.mother.length; i++){
-              if (this.mother[i][1] > indice[0]){
-                this.mother[i][1] -= 1;
-              }
-            }
-            for (let i=0; i < this.procesador.length; i++){
-              if (this.procesador[i][1] > indice[0]){
-                this.procesador[i][1] -= 1;
-              }
-            }
-            for (let i=0; i < this.video.length; i++){
-              if (this.video[i][1] > indice[0]){
-                this.video[i][1] -= 1;
-              }
-            }
-            for (let i=0; i < this.ram.length; i++){
-              if (this.ram[i][1] > indice[0]){
-                this.ram[i][1] -= 1;
-              }
-            }
-            for (let i=0; i < this.f_energia.length; i++){
-              if (this.f_energia[i][1] > indice[0]){
-                this.f_energia[i][1] -= 1;
-              }
-            }
-            for (let i=0; i < this.almacenamiento.length; i++){
-              if (this.almacenamiento[i][1] > indice[0]){
-                this.almacenamiento[i][1] -= 1;
-              }
-            }
-            for (let i=0; i < this.refrigeracion.length; i++){
-              if (this.refrigeracion[i][1] > indice[0]){
-                this.refrigeracion[i][1] -= 1;
-              }
-            }
-            for (let i=0; i < this.tipo_case.length; i++){
-              if (this.tipo_case[i][1] > indice[0]){
-                this.tipo_case[i][1] -= 1;
-              }
-            }
-            
+                  this.cambiarprecio = true;
+                  this.usuario_carrito.diseno.splice(indice[0], 1);
+                  
+                  if (indice[2] === 'mother') {
+                    this.mother.splice(indice[1], 1);
+                  }
+                  else if(indice[2] === 'procesador') {
+                    this.procesador.splice(indice[1], 1);
+                  }
+                  else if(indice[2] === 'video') {
+                    this.video.splice(indice[1], 1);
+                  }
+                  else if(indice[2] === 'ram') {
+                    this.ram.splice(indice[1], 1);
+                  }
+                  else if(indice[2] === 'f_energia') {
+                    this.f_energia.splice(indice[1], 1);
+                  }
+                  else if(indice[2] === 'almacenamiento') {
+                    this.almacenamiento.splice(indice[1], 1);
+                  }
+                  else if(indice[2] === 'refrigeracion') {
+                    this.refrigeracion.splice(indice[1], 1);
+                  }
+                  else if(indice[2] === 'tipo_case') {
+                    this.tipo_case.splice(indice[1], 1);
+                  }
+
+                  for (let i=0; i < this.mother.length; i++){
+                    if (this.mother[i][1] > indice[0]){
+                      this.mother[i][1] -= 1;
+                    }
+                  }
+                  for (let i=0; i < this.procesador.length; i++){
+                    if (this.procesador[i][1] > indice[0]){
+                      this.procesador[i][1] -= 1;
+                    }
+                  }
+                  for (let i=0; i < this.video.length; i++){
+                    if (this.video[i][1] > indice[0]){
+                      this.video[i][1] -= 1;
+                    }
+                  }
+                  for (let i=0; i < this.ram.length; i++){
+                    if (this.ram[i][1] > indice[0]){
+                      this.ram[i][1] -= 1;
+                    }
+                  }
+                  for (let i=0; i < this.f_energia.length; i++){
+                    if (this.f_energia[i][1] > indice[0]){
+                      this.f_energia[i][1] -= 1;
+                    }
+                  }
+                  for (let i=0; i < this.almacenamiento.length; i++){
+                    if (this.almacenamiento[i][1] > indice[0]){
+                      this.almacenamiento[i][1] -= 1;
+                    }
+                  }
+                  for (let i=0; i < this.refrigeracion.length; i++){
+                    if (this.refrigeracion[i][1] > indice[0]){
+                      this.refrigeracion[i][1] -= 1;
+                    }
+                  }
+                  for (let i=0; i < this.tipo_case.length; i++){
+                    if (this.tipo_case[i][1] > indice[0]){
+                      this.tipo_case[i][1] -= 1;
+                    }
+                  }
+                  
+
+                }
 
             this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
                 .then(res => {
@@ -478,6 +496,9 @@
 
                     console.log(e.response)
                 })
+
+            })
+
 
         },
 
@@ -543,6 +564,8 @@
                     this.usuario_carrito.carrito = res.data.carrito;
                     this.usuario_carrito.diseno = res.data.diseno;
                     this.usuario_carrito.password = res.data.password;
+
+                    this.$swal({icon:'success', title:'Diseño guardado con exito'})
 
                 })
                 .catch(e => {

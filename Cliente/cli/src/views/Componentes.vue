@@ -272,6 +272,8 @@ export default {
                     this.usuario_carrito.diseno = res.data.diseno;
                     this.usuario_carrito.password = res.data.password;
 
+                    this.$swal({icon:'success', title:'Articulo agregado al carrito de compras'})
+
                 })
                 .catch(e => {
 
@@ -289,6 +291,8 @@ export default {
                     this.usuario_carrito.carrito = res.data.carrito;
                     this.usuario_carrito.diseno = res.data.diseno;
                     this.usuario_carrito.password = res.data.password;
+
+                    this.$swal({icon:'success', title:'Articulo agregado al diseño'})
 
                 })
                 .catch(e => {
