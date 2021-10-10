@@ -1,8 +1,11 @@
 import express from 'express';
 
 const router = express.Router();
+const multer = require('multer');
 
 // importar el modelo articulo
+import Articulo from '../models/articulo';
+import User from '../models/user';
 import Mother from '../models/mother';
 import Procesador from '../models/procesador';
 import Video from '../models/video';
