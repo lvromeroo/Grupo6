@@ -17,7 +17,7 @@ import Case from '../models/case';
 // ====================================== Funciones para la categoria de tarjetas madre ==============================================
 
 // Agregar un articulo mother
-router.post('/nueva-mother', async(req, res) => {
+router.post('/nuevo-mother', async(req, res) => {
     const body = req.body;
     try {
         const motherDB = await Mother.create(body); //await es como el tiempo de espera en las peticiones del servidor
@@ -260,7 +260,7 @@ router.put('/video/:id', async(req, res) => {
 // ====================================== Funciones para la categoria de memorias RAM ==============================================
 
 // Agregar un articulo ram
-router.post('/nueva-ram', async(req, res) => {
+router.post('/nuevo-ram', async(req, res) => {
     const body = req.body;
     try {
         const ramDB = await Ram.create(body); //await es como el tiempo de espera en las peticiones del servidor
@@ -341,7 +341,7 @@ router.put('/ram/:id', async(req, res) => {
 // ====================================== Funciones para la categoria de fuentes de energia ==============================================
 
 // Agregar un articulo fuentes de energia
-router.post('/nueva-f_energia', async(req, res) => {
+router.post('/nuevo-f_energia', async(req, res) => {
     const body = req.body;
     try {
         const f_energiaDB = await F_energia.create(body); //await es como el tiempo de espera en las peticiones del servidor
@@ -503,7 +503,7 @@ router.put('/almacenamiento/:id', async(req, res) => {
 // ====================================== Funciones para la categoria de refrigeracion ==============================================
 
 // Agregar un articulo refrigeracion
-router.post('/nueva-refrigeracion', async(req, res) => {
+router.post('/nuevo-refrigeracion', async(req, res) => {
     const body = req.body;
     try {
         const refrigeracionDB = await Refrigeracion.create(body); //await es como el tiempo de espera en las peticiones del servidor
