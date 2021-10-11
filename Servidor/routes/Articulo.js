@@ -1,7 +1,6 @@
 import express from 'express';
 
 const router = express.Router();
-const multer = require('multer');
 
 // importar el modelo articulo
 import User from '../models/user';
