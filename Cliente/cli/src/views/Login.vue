@@ -37,16 +37,22 @@ export default {
       user: {
         username: "",
         password: ""
+      },
+      acceso: {
+        usuario: '',
       }
       
     }
   },
   methods:{
     loginUser(){
+
       this.axios.post('/autenticar', this.user)
       .then(response => { 
         if(response.status===200){
           this.$swal.fire({type:'success', icon:'success', title:'Bienvenido ', text:this.user.username});
+          this.acceso.usuario = this.user.username;
+          this.loguear();
           this.$router.push('/inicio'); 
           sessionStorage.setItem('camelo',this.user.username)
         }else if (response.status==500) {
@@ -56,6 +62,20 @@ export default {
         }
       });
     },
+
+    loguear(){
+            this.axios.put(`/usuario_logueado/6164e6084a6ebed9718c6003`, this.acceso)
+
+            .then(res => {
+
+                this.acceso.usuario = res.data.usuario;
+
+            })
+            .catch(e => {
+
+                console.log(e.response)
+            })
+        }
     
     
   },

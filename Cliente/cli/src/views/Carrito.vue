@@ -78,9 +78,9 @@
                                 </div>
                                 <div class="col-md-3 well">
                                     <div class="d-grid gap-2 col-10 mx-auto" style="padding: 50px 0px;">
-                                        <button class="btn btn-info" type="button" style="color:white;" @click="activarDetalles(item[0]._id); categoria=item[1];">Ver detalles</button>
-                                        <button class="btn btn-danger" type="button" style="color:white" @click="Eliminar_de_carrito(index); preciocop -= item[0].precioCop; 
-                                        preciodolar -= item[0].preciodolar">Eliminar</button>
+                                        <button class="btn btn-info" type="button" style="color:white;" @click=" categoria=item[1]; activarDetalles(item[0]._id);">Ver detalles</button>
+                                        <button class="btn btn-danger" type="button" style="color:white" @click="Eliminar_de_carrito
+                                        ([index, item[0].precioCop, item[0].preciodolar]);">Eliminar</button>
                                     </div>
                                 </div>
                             </div>
@@ -120,8 +120,8 @@
                             </div>
                             <div class="col-md-8 well" style="padding: 30px;">
                                 <div class="d-grid gap-2 col-6 mx-auto" style="padding: 30px 0px;">
-                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" @click="Eliminar_de_carrito(index); endetalles=true; 
-                                    preciocop -= articulo_detalle.precioCop; preciodolar -= articulo_detalle.preciodolar">Eliminar</button>
+                                    <button class="btn btn-danger" type="button" style="height: 55px; font-size: 20px; color: white;" @click="Eliminar_de_carrito
+                                    ([index, articulo_detalle.precioCop, articulo_detalle.preciodolar]); endetalles=true;">Eliminar</button>
                                     <button class="btn btn-info" type="button" style="height: 55px; font-size: 20px; color: white;" @click="detalles=false" >Regresar</button>
                                 </div>
                             </div>
@@ -206,7 +206,8 @@ export default {
             preciocop: 0,
             preciodolar: 0,
             username: 'Username',
-            j: 0
+            j: 0,
+            acceso: ''
         }
 
     },
@@ -262,14 +263,28 @@ export default {
         },
         ObtenerUsuario() {
 
-            this.axios.get('/user')
+            this.axios.get('/usuario_logueado/6164e6084a6ebed9718c6003')
+
             .then(res=>{
 
                 console.log(res.data)
-                this.usuario_carrito = res.data[0];
-                this.carrito = res.data[0].carrito;
-                this.username = res.data[0].username;
-                this.VerCarrito();
+                let name = res.data.usuario;
+
+                this.axios.get(`/user/${name}`)
+                .then(res=>{
+                    console.log(res.data)
+                    this.acceso = res.data._id;
+                    this.usuario_carrito = res.data;
+                    this.carrito = res.data.carrito;
+                    this.username = res.data.username;
+                    this.VerCarrito();
+
+                })
+                .catch(e=>{
+
+                    console.log(e.response);
+
+                })
 
             })
             .catch(e=>{
@@ -282,6 +297,7 @@ export default {
         activarDetalles (id) {
 
             this.detalles = true;
+
             console.log(id);
             this.axios.get(`/${this.categoria}/${id}`)
 
@@ -318,12 +334,16 @@ export default {
                         this.detalles = false;
                     }
 
-                    this.usuario_carrito.carrito.splice(indice, 1);
-                    this.articulos.splice(indice, 1);
+
+                    this.preciocop -= indice[1];
+                    this.preciodolar -= indice[2];
+
+                    this.usuario_carrito.carrito.splice(indice[0], 1);
+                    this.articulos.splice(indice[0], 1);
 
                 }
 
-                this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+                this.axios.put(`/user/${this.acceso}`, this.usuario_carrito)
                     .then(res => {
 
                         this.usuario_carrito.username = res.data.username;

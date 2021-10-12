@@ -33,7 +33,7 @@
       "js/" +
       ({ about: "about" }[e] || e) +
       "." +
-      { about: "f2c3ea50" }[e] +
+      { about: "da8c1af0" }[e] +
       ".js"
     );
   }
@@ -56,7 +56,7 @@
                   "css/" +
                   ({ about: "about" }[e] || e) +
                   "." +
-                  { about: "1acf77d3" }[e] +
+                  { about: "86d3b8da" }[e] +
                   ".css",
                 o = i.p + r,
                 s = document.getElementsByTagName("link"),
@@ -324,7 +324,11 @@
         name: "Login",
         components: {},
         data: function () {
-          return { users: [], user: { username: "", password: "" } };
+          return {
+            users: [],
+            user: { username: "", password: "" },
+            acceso: { usuario: "" },
+          };
         },
         methods: {
           loginUser: function () {
@@ -337,10 +341,23 @@
                     title: "Bienvenido ",
                     text: e.user.username,
                   }),
+                  (e.acceso.usuario = e.user.username),
+                  e.loguear(),
                   e.$router.push("/inicio"),
                   sessionStorage.setItem("camelo", e.user.username))
                 : (t.status, e.$swal("Vuelve a intentar"));
             });
+          },
+          loguear: function () {
+            var e = this;
+            this.axios
+              .put("/usuario_logueado/6164e6084a6ebed9718c6003", this.acceso)
+              .then(function (t) {
+                e.acceso.usuario = t.data.usuario;
+              })
+              .catch(function (e) {
+                console.log(e.response);
+              });
           },
         },
         create: function () {
@@ -348,7 +365,7 @@
         },
       },
       b = v,
-      g = (n("d969"), Object(l["a"])(b, m, h, !1, null, "690bee9d", null)),
+      g = (n("e680"), Object(l["a"])(b, m, h, !1, null, "632e572b", null)),
       _ = g.exports;
     r["default"].use(p["a"]);
     var w = [
@@ -449,6 +466,7 @@
     "use strict";
     n("c3b9");
   },
+  a009: function (e, t, n) {},
   a430: function (e, t, n) {
     "use strict";
     var r = function () {
@@ -505,11 +523,6 @@
   },
   bf1a: function (e, t, n) {},
   c3b9: function (e, t, n) {},
-  c664: function (e, t, n) {},
-  d969: function (e, t, n) {
-    "use strict";
-    n("c664");
-  },
   dfcd: function (e, t, n) {
     "use strict";
     var r = function () {
@@ -602,9 +615,13 @@
       u = Object(o["a"])(s, r, a, !1, null, "0e4ffb13", null);
     t["a"] = u.exports;
   },
+  e680: function (e, t, n) {
+    "use strict";
+    n("a009");
+  },
   e91d: function (e, t, n) {
     "use strict";
     n("bf1a");
   },
 });
-//# sourceMappingURL=app.69a512a3.js.map
+//# sourceMappingURL=app.b12ab3a4.js.map

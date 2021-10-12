@@ -3,6 +3,7 @@ const router = express.Router();
 
 //importar el modelo nota
 import User from '../models/user';
+import Usuario_logueado from '../models/usuario_logueado';
 
 
 
@@ -72,6 +73,20 @@ router.get('/user', async(req, res) => {
 }
 });
 
+// Obtener un usuario por username
+router.get('/user/:username', async(req, res) => {
+    const username = req.params.username;
+    try {
+        const userDB = await User.findOne({username});
+        res.json(userDB);
+    } catch (error) {
+    return res.status(400).json({
+        mensaje: 'Ocurrio un error',
+        error
+    })
+}
+});
+
 // Put actualizar informacion de usuario
 router.put('/user/:id', async(req, res) => {
     const _id = req.params.id;
@@ -84,6 +99,53 @@ router.put('/user/:id', async(req, res) => {
         res.json(user);
     } catch (error) {
         return res.status(400).json({
+        mensaje: 'Ocurrio un error',
+        error
+    })
+}
+});
+
+
+// ============================================== Obtencion del usuario logueado ===================================================
+// Put para actualizar el usuario que esta logueado
+router.put('/usuario_logueado/:id', async(req, res) => {
+    const _id = req.params.id;
+    const body = req.body;
+    try {
+        const usuario_logueado = await Usuario_logueado.findByIdAndUpdate(
+        _id,
+        body,
+        {new: true});
+        res.json(usuario_logueado);
+    } catch (error) {
+        return res.status(400).json({
+        mensaje: 'Ocurrio un error',
+        error
+    })
+}
+});
+
+router.post('/nuevo-usuario_logueado', async(req, res) => {
+    const body = req.body;
+    try{
+        const usuario_logueadoDB = await Usuario_logueado.create(body);
+        res.status(200).json({mensaje:'todo listo'});
+        console.log(usuario_logueadoDB);
+    } catch ( error ){
+        return res.status(500).json({
+            mensaje: 'ocurrio un error',
+            error
+        })
+    }
+});
+
+router.get('/usuario_logueado/:id', async(req, res) => {
+    const _id = req.params.id;
+    try {
+        const usuario_logueadoDB = await Usuario_logueado.findOne({_id});
+        res.json(usuario_logueadoDB);
+    } catch (error) {
+    return res.status(400).json({
         mensaje: 'Ocurrio un error',
         error
     })

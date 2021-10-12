@@ -183,7 +183,8 @@ export default {
             categoria: 'mother',
             detalles: false,
             articulo_detalle: {},
-            usuario_carrito: {}
+            usuario_carrito: {},
+            acceso: ''
         }
 
     },
@@ -247,11 +248,26 @@ export default {
         },
         ObtenerUsuario() {
 
-            this.axios.get('/user')
+            this.axios.get('/usuario_logueado/6164e6084a6ebed9718c6003')
+
             .then(res=>{
 
                 console.log(res.data)
-                this.usuario_carrito = res.data[0];
+                let name = res.data.usuario;
+
+                this.axios.get(`/user/${name}`)
+                .then(res=>{
+
+                    console.log(res.data)
+                    this.usuario_carrito = res.data;
+                    this.acceso = res.data._id;
+
+                })
+                .catch(e=>{
+
+                    console.log(e.response);
+
+                })
 
             })
             .catch(e=>{
@@ -264,7 +280,7 @@ export default {
         Agregar_a_carrito(item) {
 
             this.usuario_carrito.carrito.push(item);
-            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+            this.axios.put(`/user/${this.acceso}`, this.usuario_carrito)
                 .then(res => {
 
                     this.usuario_carrito.username = res.data.username;
@@ -284,9 +300,10 @@ export default {
         Agregar_a_diseno(item) {
 
             this.usuario_carrito.diseno.push(item);
-            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+            this.axios.put(`/user/${this.acceso}`, this.usuario_carrito)
+            
                 .then(res => {
-
+                        
                     this.usuario_carrito.username = res.data.username;
                     this.usuario_carrito.carrito = res.data.carrito;
                     this.usuario_carrito.diseno = res.data.diseno;

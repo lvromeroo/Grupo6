@@ -52,7 +52,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'mother']); if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
+                      @click="Eliminar_de_diseno([item[1], index, 'mother', item[0].precioCop, item[0].preciodolar]);">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -77,7 +77,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'procesador']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
+                      @click="Eliminar_de_diseno([item[1], index, 'procesador', item[0].precioCop, item[0].preciodolar]);">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -100,7 +100,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'video']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
+                      @click="Eliminar_de_diseno([item[1], index, 'video', item[0].precioCop, item[0].preciodolar]);">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -123,7 +123,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'ram']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
+                      @click="Eliminar_de_diseno([item[1], index, 'ram', item[0].precioCop, item[0].preciodolar]);">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -146,7 +146,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'f_energia']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
+                      @click="Eliminar_de_diseno([item[1], index, 'f_energia', item[0].precioCop, item[0].preciodolar]);">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -169,7 +169,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'almacenamiento']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
+                      @click="Eliminar_de_diseno([item[1], index, 'almacenamiento', item[0].precioCop, item[0].preciodolar]);">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -192,7 +192,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'refrigeracion']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
+                      @click="Eliminar_de_diseno([item[1], index, 'refrigeracion', item[0].precioCop, item[0].preciodolar]);">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -215,7 +215,7 @@
                       fab
                       dark
                       small style="background-color: red;"
-                      @click="Eliminar_de_diseno([item[1], index, 'tipo_case']);  if (cambiarprecio) {preciocop -= item[0].precioCop; preciodolar -= item[0].preciodolar; cambiarprecio = false;}">
+                      @click="Eliminar_de_diseno([item[1], index, 'tipo_case', item[0].precioCop, item[0].preciodolar]);">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -310,8 +310,8 @@
         preciocop: 0,
         preciodolar: 0,
         usuario_carrito: {},
-        cambiarprecio: false,
-        j: 0
+        j: 0,
+        acceso: ''
 
 
       };
@@ -379,13 +379,27 @@
 
         ObtenerUsuario() {
 
-            this.axios.get('/user')
+            this.axios.get('/usuario_logueado/6164e6084a6ebed9718c6003')
+
             .then(res=>{
 
                 console.log(res.data)
-                this.usuario_carrito = res.data[0];
-                this.carrito = res.data[0].diseno;
-                this.VerCarrito();
+                let name = res.data.usuario;
+
+                this.axios.get(`/user/${name}`)
+                .then(res=>{
+                    console.log(res.data)
+                    this.acceso = res.data._id;
+                    this.usuario_carrito = res.data;
+                    this.carrito = res.data.diseno;
+                    this.VerCarrito();
+
+                })
+                .catch(e=>{
+
+                    console.log(e.response);
+
+                })
 
             })
             .catch(e=>{
@@ -393,9 +407,10 @@
                 console.log(e.response);
 
             })
+            
 
         },
-        Eliminar_de_diseno(indice) {
+        Eliminar_de_diseno (indice) {
 
             this.$swal({
                 title: '¿Estas seguro de que quieres eliminar el articulo?',
@@ -411,7 +426,9 @@
             .then(async(result)=>{
                 if(result.value) {
 
-                  this.cambiarprecio = true;
+                  this.preciocop -= indice[3];
+                  this.preciodolar -= indice[4];
+
                   this.usuario_carrito.diseno.splice(indice[0], 1);
                   
                   if (indice[2] === 'mother') {
@@ -483,7 +500,7 @@
 
                 }
 
-            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+            this.axios.put(`/user/${this.acceso}`, this.usuario_carrito)
                 .then(res => {
 
                     this.usuario_carrito.username = res.data.username;
@@ -557,7 +574,7 @@
             this.preciocop = 0;
             this.preciodolar = 0;
 
-            this.axios.put(`/user/${this.usuario_carrito._id}`, this.usuario_carrito)
+            this.axios.put(`/user/${this.acceso}`, this.usuario_carrito)
                 .then(res => {
 
                     this.usuario_carrito.username = res.data.username;
