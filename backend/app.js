@@ -27,8 +27,11 @@ mongoose.connect(uri, options).then(
 //middleware
 app.use(morgan('tiny'));
 app.use(cors());
+// app.use(express.json());
+// app.use(express.urlencoded({extended: true}));// en la documentacion estaba true
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));// en la documentacion estaba true
+app.use(express.urlencoded({limit: '50mb'},{extended: true}));
+
 const storage = multer.diskStorage({
     destination: path.join(__dirname, 'public/img/uploads'),
     filename: (req, file, cb, filename) =>{

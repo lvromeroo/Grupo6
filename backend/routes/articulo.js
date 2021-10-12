@@ -179,9 +179,19 @@ import Case from '../models/case';
 // });
 
 // router.post('/nuevo-mother', async(req, res) => {
-//     const imag = req.file;
+//     const imag = req.body;
+
+//     var fs = require('fs');
+//     var nomreArchivo = Math.random().toString()+".jpg";
+//     fs.writeFile(nomreArchivo, imag, {encoding: "base64"}, function(err){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             console.log("exito");
+//         }
+//     } )
+
 //     console.log(imag)
-//     res.json(imag)
 // });
 
 

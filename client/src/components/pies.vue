@@ -1,16 +1,16 @@
 <style scoped>
-    .footer{
-        clear:both;
-        padding: 10px 0px;
-        background-color: #a3b3ea;
-    }
-    .section-foot {
-        background-color: #a3b3ea;
-        height: 200px;
-        display: flex;
-        color: white;
-        justify-content: space-evenly;
-    }
+.footer {
+  clear: both;
+  padding: 10px 0px;
+  background-color: #a3b3ea;
+}
+.section-foot {
+  background-color: #a3b3ea;
+  height: 200px;
+  display: flex;
+  color: white;
+  justify-content: space-evenly;
+}
 </style>
 
 <template>
@@ -31,10 +31,10 @@
 
             <article>
             <h2>Información</h2>
-                <p>Teléfono:</p>
-                <p>Dirección:</p>
-                <p>Tiendas aliadas online:</p>
-                <p>Compañias aliadas:</p>
+                <p>Teléfono: 314-799-666</p>
+                <p>Dirección: Campanas de Noel</p>
+                <p>Tiendas aliadas online: La tienda de Gustavo</p>
+                <p>Compañias aliadas: Doña Tula S.A</p>
             </article>
         </div>
     </footer>
