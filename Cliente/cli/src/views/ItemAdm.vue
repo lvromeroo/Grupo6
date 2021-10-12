@@ -5,7 +5,6 @@
       <!-- Parte izquierda -->
       <div class="ala_izqu_Ad">
         <!-- targeta de infrmacion -->
-
         <div class="contenr_ad">
           <div class="card" style="width: 15rem">
             <img
@@ -17,13 +16,11 @@
               <h5 class="card-title">ADMINISTRADOR</h5>
               <p class="card-text">Cambiar contraseña</p>
               <button class="btn btn-"></button>
-              <button class="btn btn-primary" @click="cerrar()">Cerrar sesion</button>
+              <button class="btn btn-primary">Cerrar sesion</button>
             </div>
           </div>
         </div>
-
         <!-- cuadro despegable -->
-
         <div class="despegable">
           <div class="col-12">
             <b-button-group vertical style="color: white">
@@ -111,7 +108,6 @@
             {{ tituloCategoria }}
           </h2>
         </div>
-
         <!-- contenedor -->
         <div class="structura">
           <!-- parte principal -->
@@ -120,14 +116,20 @@
               <img src="../assets/img-icon.jpg" alt="" width="100%" />
             </div>
             <div class="agredd">
-                <div class="textIcon">
-                  <div class="mb-3">
-                    <label for="formFile" class="form-label"
-                      >Default file input example</label
-                    >
-                    <input class="form-control-file" type="file" name="image" ref="file" id="formFile"/>
-                  </div>
+              <div class="textIcon">
+                <div class="mb-3">
+                  <label for="formFile" class="form-label"
+                    >Default file input example</label
+                  >
+                  <input
+                    class="form-control-file"
+                    type="file"
+                    name="image"
+                    ref="file"
+                    id="formFile"
+                  />
                 </div>
+              </div>
             </div>
           </div>
           <!-- cuerpo -->
@@ -216,7 +218,13 @@
             >
               <h5>GUARDAR</h5>
             </button>
-            <button class="btn btn-outline-success" id="bottom_volv" @click="volver()"><h5>VOLVER</h5></button>
+            <button
+              class="btn btn-outline-success"
+              id="bottom_volv"
+              @click="volver()"
+            >
+              <h5>VOLVER</h5>
+            </button>
           </div>
         </div>
       </div>
@@ -237,7 +245,7 @@ export default {
   data() {
     return {
       articulos: {
-        imagen:"",
+        imagen: "",
         nombreTecnico: "",
         nombreComercial: "",
         marca: "",
@@ -251,48 +259,65 @@ export default {
   },
   methods: {
     crearArticulos() {
-      this.$swal({icon:'success', title:'Exito en su creación', text:'Su Creacion registrada'})
-      this.axios.post("/nuevo-" + this.categoria, this.articulos)
-      .then((res) => {
-          console.log(res.data);
-      });
-    },
-    volver(){
-       this.$swal({
-        title: '¿Querés Volver?',
-        type: 'warning',
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: 'Sí, quiero volver!',
-        cancelButtonText: 'No, me arrepentí!',
-        showCloseButton: true,
-        showLoaderOnConfirm: true
-      }).then(async(result)=>{
-        if(result.value){
-          this.$router.push('/cuenta');
-        }
-      });
-    },
-    cerrar(){
       this.$swal({
-        title: '¿Estas Seguro?',
-        type: 'warning',
-        icon: 'question',
+        icon: "success",
+        title: "Exito en su creación",
+        text: "Su Creacion registrada",
+      });
+      this.axios
+        .post("/nuevo-" + this.categoria, this.articulos)
+        .then((res) => {
+          console.log(res.data);
+        });
+    },
+    volver() {
+      this.$swal({
+        title: "¿Querés Volver?",
+        type: "warning",
+        icon: "question",
         showCancelButton: true,
-        confirmButtonText: 'Sí, estoy seguro',
-        cancelButtonText: 'No, quiero quedarme',
+        confirmButtonText: "Sí, quiero volver!",
+        cancelButtonText: "No, me arrepentí!",
         showCloseButton: true,
-        showLoaderOnConfirm: true
-      }).then(async(result)=>{
-        if(result.value){
-          this.$router.push('/');
+        showLoaderOnConfirm: true,
+      }).then(async (result) => {
+        if (result.value) {
+          this.$router.push("/cuenta");
         }
       });
-    }
+    },
+    cerrar() {
+      this.$swal({
+        title: "¿Estas Seguro?",
+        type: "warning",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Sí, estoy seguro",
+        cancelButtonText: "No, quiero quedarme",
+        showCloseButton: true,
+        showLoaderOnConfirm: true,
+      }).then(async (result) => {
+        if (result.value) {
+          this.$router.push("/");
+        }
+      });
+    },
+    //   var fileReader = new FileReader();
+    //   fileReader.readAsDataURL(event.target.files[0]);
+    //   fileReader.onload = (event) => {
+    //     this.articulos.imagen = event.target.result;
+    //     var formData = new FormData();
+    //     formData.append("image", this.articulos.imagen);
+    //   };
+    //   try {
+    //     this.axios.post("/nuevo-" + this.categoria, formData);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
   },
-  created() {
-  }
-}
+  created() {},
+};
 </script>
 
 <style scoped>
@@ -384,7 +409,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-#buttom_guar, #bottom_volv{
+#buttom_guar,
+#bottom_volv {
   margin-right: 15%;
   margin-top: 3%;
   float: right;

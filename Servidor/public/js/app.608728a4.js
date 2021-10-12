@@ -33,7 +33,7 @@
       "js/" +
       ({ about: "about" }[e] || e) +
       "." +
-      { about: "da8c1af0" }[e] +
+      { about: "922a96ac" }[e] +
       ".js"
     );
   }
@@ -56,7 +56,7 @@
                   "css/" +
                   ({ about: "about" }[e] || e) +
                   "." +
-                  { about: "86d3b8da" }[e] +
+                  { about: "3fd00c7d" }[e] +
                   ".css",
                 o = i.p + r,
                 s = document.getElementsByTagName("link"),
@@ -191,6 +191,11 @@
 })({
   0: function (e, t, n) {
     e.exports = n("56d7");
+  },
+  "1a91": function (e, t, n) {},
+  "4ec1": function (e, t, n) {
+    "use strict";
+    n("ad4a");
   },
   "56d7": function (e, t, n) {
     "use strict";
@@ -444,9 +449,9 @@
       A = (n("f9e3"), n("2dd8"), n("bc3a")),
       S = n.n(A),
       N = n("130e"),
-      P = n("f309");
-    r["default"].use(P["a"]);
-    var T = new P["a"]({});
+      T = n("f309");
+    r["default"].use(T["a"]);
+    var P = new T["a"]({});
     r["default"].use(j["a"]),
       r["default"].use(k["a"]),
       r["default"].use(N["a"], S.a),
@@ -456,15 +461,15 @@
       new r["default"]({
         router: C,
         store: O,
-        vuetify: T,
+        vuetify: P,
         render: function (e) {
           return e(d);
         },
       }).$mount("#app");
   },
-  "5c61": function (e, t, n) {
+  "72e5": function (e, t, n) {
     "use strict";
-    n("c3b9");
+    n("1a91");
   },
   a009: function (e, t, n) {},
   a430: function (e, t, n) {
@@ -516,13 +521,12 @@
           ]);
         },
       ],
-      o = (n("5c61"), n("2877")),
+      o = (n("4ec1"), n("2877")),
       s = {},
-      u = Object(o["a"])(s, r, a, !1, null, "18899305", null);
+      u = Object(o["a"])(s, r, a, !1, null, "3770fb74", null);
     t["a"] = u.exports;
   },
-  bf1a: function (e, t, n) {},
-  c3b9: function (e, t, n) {},
+  ad4a: function (e, t, n) {},
   dfcd: function (e, t, n) {
     "use strict";
     var r = function () {
@@ -601,27 +605,23 @@
               ]),
               n("article", [
                 n("h2", [e._v("Información")]),
-                n("p", [e._v("Teléfono:")]),
-                n("p", [e._v("Dirección:")]),
-                n("p", [e._v("Tiendas aliadas online:")]),
-                n("p", [e._v("Compañias aliadas:")]),
+                n("p", [e._v("Teléfono: 314-799-666")]),
+                n("p", [e._v("Dirección: Campanas de Noel")]),
+                n("p", [e._v("Tiendas aliadas online: La tienda de Gustavo")]),
+                n("p", [e._v("Compañias aliadas: Doña Tula S.A")]),
               ]),
             ]),
           ]);
         },
       ],
-      o = (n("e91d"), n("2877")),
+      o = (n("72e5"), n("2877")),
       s = {},
-      u = Object(o["a"])(s, r, a, !1, null, "0e4ffb13", null);
+      u = Object(o["a"])(s, r, a, !1, null, "658e6976", null);
     t["a"] = u.exports;
   },
   e680: function (e, t, n) {
     "use strict";
     n("a009");
   },
-  e91d: function (e, t, n) {
-    "use strict";
-    n("bf1a");
-  },
 });
-//# sourceMappingURL=app.b12ab3a4.js.map
+//# sourceMappingURL=app.608728a4.js.map

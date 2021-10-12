@@ -31,10 +31,10 @@
 
             <article>
             <h2>Información</h2>
-                <p>Teléfono:</p>
-                <p>Dirección:</p>
-                <p>Tiendas aliadas online:</p>
-                <p>Compañias aliadas:</p>
+                <p>Teléfono: 314-799-666</p>
+                <p>Dirección: Campanas de Noel</p>
+                <p>Tiendas aliadas online: La tienda de Gustavo</p>
+                <p>Compañias aliadas: Doña Tula S.A</p>
             </article>
         </div>
     </footer>
